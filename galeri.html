@@ -1,1 +1,522 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GLOBAL ZONE | Semua Desain Jersey</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        neon: {
+                            cyan: '#00F0FF',
+                            purple: '#7000FF',
+                            lime: '#39FF14'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-[#05050A] text-slate-100 antialiased">
+
+    <!-- HEADER -->
+    <header class="sticky top-0 z-40 bg-[#05050A]/90 backdrop-blur-xl border-b border-slate-900">
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+
+            <!-- LOGO -->
+            <a href="index.html" class="flex items-center gap-3">
+
+                <div
+                    class="w-10 h-10 rounded-xl bg-gradient-to-tr from-neon-purple to-neon-cyan flex items-center justify-center text-slate-950 font-black text-xl shadow-[0_0_15px_rgba(0,240,255,0.4)]">
+                    G
+                </div>
+
+                <span
+                    class="text-xl font-extrabold tracking-wider bg-gradient-to-r from-white via-slate-300 to-neon-cyan bg-clip-text text-transparent">
+                    GLOBAL ZONE<span class="text-neon-cyan">.</span>
+                </span>
+
+            </a>
+
+            <!-- KEMBALI -->
+            <a href="index.html"
+                class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-neon-cyan/50 hover:text-neon-cyan transition-all text-sm font-bold">
+
+                <i class="fa-solid fa-arrow-left"></i>
+                <span class="hidden sm:inline">Kembali ke Beranda</span>
+                <span class="sm:hidden">Beranda</span>
+
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- JUDUL -->
+    <section class="pt-20 pb-12 relative overflow-hidden">
+
+        <div
+            class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-neon-purple/20 via-[#05050A] to-[#05050A] -z-10">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+
+            <span class="text-neon-cyan text-xs font-black uppercase tracking-widest">
+                Koleksi Desain
+            </span>
+
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight mt-3">
+                Semua Desain Jersey
+            </h1>
+
+            <p class="text-slate-400 text-sm sm:text-base max-w-2xl mx-auto mt-5">
+                Jelajahi seluruh koleksi desain jersey Global Zone sebagai referensi
+                untuk pembuatan jersey tim Anda.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- GALERI -->
+    <section class="pb-24">
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <!-- JUMLAH DESAIN -->
+            <div class="flex items-center justify-between mb-8">
+
+                <div>
+                    <span class="text-sm text-slate-500">
+                        Menampilkan
+                    </span>
+
+                    <span id="page-info"
+                        class="text-sm font-bold text-neon-cyan">
+                        Desain
+                    </span>
+                </div>
+
+                <div class="text-xs text-slate-500">
+                    100 Koleksi Desain
+                </div>
+
+            </div>
+
+
+            <!-- GRID -->
+            <div id="design-grid"
+                class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            </div>
+
+
+            <!-- PAGINATION -->
+            <div id="pagination"
+                class="flex flex-wrap justify-center items-center gap-2 mt-12">
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer class="bg-[#030306] border-t border-slate-900 py-12">
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="text-center">
+
+                <div class="flex items-center justify-center gap-3 mb-4">
+
+                    <div
+                        class="w-8 h-8 rounded-xl bg-gradient-to-tr from-neon-purple to-neon-cyan flex items-center justify-center text-slate-950 font-black">
+                        G
+                    </div>
+
+                    <span class="text-lg font-extrabold tracking-wider text-white">
+                        GLOBAL ZONE
+                    </span>
+
+                </div>
+
+                <p class="text-slate-500 text-xs">
+                    Pusat pembuatan jersey custom untuk klub, komunitas,
+                    futsal, sepakbola, esport, dan berbagai kebutuhan tim.
+                </p>
+
+                <div class="mt-6">
+
+                    <a href="https://wa.me/6283817075604?text=Halo%20Admin%20Global%20Zone,%20saya%20ingin%20konsultasi%20desain%20jersey."
+                        target="_blank"
+                        class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm transition-all">
+
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        Konsultasi Desain
+
+                    </a>
+
+                </div>
+
+                <div class="mt-8 pt-6 border-t border-slate-900 text-xs text-slate-600">
+                    &copy; 2026 GLOBAL ZONE Indonesia. All Rights Reserved.
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script>
+
+        /*
+        ==================================================
+        PENGATURAN GALERI
+        ==================================================
+        */
+
+        const totalDesigns = 100;
+
+        const designsPerPage = 24;
+
+        let currentPage = 1;
+
+
+        /*
+        ==================================================
+        MEMBUAT DATA DESAIN OTOMATIS
+        ==================================================
+        */
+
+        const designGalleries = Array.from(
+            { length: totalDesigns },
+            (_, index) => {
+
+                const number = index + 1;
+
+                return {
+                    id: number,
+                    name: `Jersey ${String(number).padStart(2, '0')}`,
+                    image: `images/${number}.png`
+                };
+
+            }
+        );
+
+
+        /*
+        ==================================================
+        RENDER DESAIN
+        ==================================================
+        */
+
+        function renderDesigns() {
+
+            const grid = document.getElementById('design-grid');
+
+            grid.innerHTML = '';
+
+            const startIndex =
+                (currentPage - 1) * designsPerPage;
+
+            const endIndex =
+                startIndex + designsPerPage;
+
+            const designsToShow =
+                designGalleries.slice(startIndex, endIndex);
+
+
+            designsToShow.forEach(item => {
+
+                const waMessage = encodeURIComponent(
+                    `Halo Admin Global Zone, saya ingin konsultasi desain jersey berdasarkan referensi: ${item.name}`
+                );
+
+
+                grid.innerHTML += `
+
+                    <div
+                        class="bg-slate-900/60 border border-slate-800 rounded-3xl overflow-hidden group hover:border-neon-cyan/50 transition-all backdrop-blur-md">
+
+                        <!-- GAMBAR -->
+
+                        <div class="relative h-72 overflow-hidden bg-slate-950">
+
+                            <img
+                                src="${item.image}"
+                                alt="${item.name}"
+                                loading="lazy"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\\'h-full flex items-center justify-center text-slate-600 text-sm\\'>Gambar tidak ditemukan</div>'"
+                            >
+
+                            <!-- NOMOR -->
+
+                            <div
+                                class="absolute top-4 left-4 bg-slate-950/80 backdrop-blur-md border border-slate-800 text-neon-cyan text-xs font-black px-3 py-1.5 rounded-full">
+
+                                #${String(item.id).padStart(2, '0')}
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- INFO -->
+
+                        <div class="p-5">
+
+                            <h3
+                                class="font-extrabold text-lg text-white group-hover:text-neon-cyan transition-colors">
+
+                                ${item.name}
+
+                            </h3>
+
+
+                            <p class="text-xs text-slate-500 mt-1">
+                                Referensi desain jersey
+                            </p>
+
+
+                            <!-- WHATSAPP -->
+
+                            <a
+                                href="https://wa.me/6283817075604?text=${waMessage}"
+                                target="_blank"
+                                class="mt-4 w-full px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-neon-cyan text-white hover:text-slate-950 font-extrabold text-xs transition-all flex items-center justify-center gap-2">
+
+                                <i class="fa-brands fa-whatsapp"></i>
+
+                                Konsultasi Desain
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                `;
+
+            });
+
+
+            /*
+            UPDATE INFO HALAMAN
+            */
+
+            const totalPages =
+                Math.ceil(totalDesigns / designsPerPage);
+
+            const firstDesign =
+                startIndex + 1;
+
+            const lastDesign =
+                Math.min(endIndex, totalDesigns);
+
+            document.getElementById('page-info').innerText =
+                `${firstDesign}–${lastDesign} dari ${totalDesigns} desain`;
+
+
+            renderPagination(totalPages);
+
+        }
+
+
+        /*
+        ==================================================
+        PAGINATION
+        ==================================================
+        */
+
+        function renderPagination(totalPages) {
+
+            const pagination =
+                document.getElementById('pagination');
+
+            pagination.innerHTML = '';
+
+
+            /*
+            TOMBOL PREVIOUS
+            */
+
+            const previousButton = document.createElement('button');
+
+            previousButton.innerHTML =
+                '<i class="fa-solid fa-chevron-left"></i>';
+
+            previousButton.className =
+                `w-10 h-10 rounded-xl border border-slate-800
+                bg-slate-900 text-slate-400
+                hover:border-neon-cyan hover:text-neon-cyan
+                transition-all
+                ${currentPage === 1 ? 'opacity-30 cursor-not-allowed' : ''}`;
+
+            previousButton.disabled =
+                currentPage === 1;
+
+            previousButton.onclick = function () {
+
+                if (currentPage > 1) {
+
+                    currentPage--;
+
+                    renderDesigns();
+
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+
+                }
+
+            };
+
+            pagination.appendChild(previousButton);
+
+
+            /*
+            NOMOR HALAMAN
+            */
+
+            for (let page = 1; page <= totalPages; page++) {
+
+                const pageButton =
+                    document.createElement('button');
+
+                pageButton.innerText = page;
+
+
+                if (page === currentPage) {
+
+                    pageButton.className =
+                        `w-10 h-10 rounded-xl
+                        bg-neon-cyan
+                        text-slate-950
+                        font-black`;
+
+                } else {
+
+                    pageButton.className =
+                        `w-10 h-10 rounded-xl
+                        border border-slate-800
+                        bg-slate-900
+                        text-slate-400
+                        hover:border-neon-cyan
+                        hover:text-neon-cyan
+                        transition-all`;
+
+                }
+
+
+                pageButton.onclick = function () {
+
+                    currentPage = page;
+
+                    renderDesigns();
+
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+
+                };
+
+
+                pagination.appendChild(pageButton);
+
+            }
+
+
+            /*
+            TOMBOL NEXT
+            */
+
+            const nextButton =
+                document.createElement('button');
+
+            nextButton.innerHTML =
+                '<i class="fa-solid fa-chevron-right"></i>';
+
+            nextButton.className =
+                `w-10 h-10 rounded-xl border border-slate-800
+                bg-slate-900 text-slate-400
+                hover:border-neon-cyan hover:text-neon-cyan
+                transition-all
+                ${currentPage === totalPages ? 'opacity-30 cursor-not-allowed' : ''}`;
+
+            nextButton.disabled =
+                currentPage === totalPages;
+
+
+            nextButton.onclick = function () {
+
+                if (currentPage < totalPages) {
+
+                    currentPage++;
+
+                    renderDesigns();
+
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+
+                }
+
+            };
+
+
+            pagination.appendChild(nextButton);
+
+        }
+
+
+        /*
+        ==================================================
+        JALANKAN GALERI
+        ==================================================
+        */
+
+        window.onload = function () {
+
+            renderDesigns();
+
+        };
+
+    </script>
+
+</body>
+
+</html>

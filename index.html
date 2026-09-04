@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katalog Produk Modern</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased min-h-screen flex flex-col">
+
+    <!-- Header & Navigasi -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="bg-brand-600 text-white p-2 rounded-xl shadow-md">
+                    <i class="fa-solid fa-shirt text-xl"></i>
+                </div>
+                <span class="text-xl font-bold tracking-tight text-gray-900">JerseyPro</span>
+            </div>
+            
+            <!-- Navigasi Menu Desktop -->
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#" onclick="window.scrollTo(0,0); return false;" class="text-gray-600 hover:text-brand-600 font-medium transition">Beranda</a>
+                <a href="#katalog-desain" class="text-gray-600 hover:text-brand-600 font-medium transition">Katalog Desain</a>
+                <a href="#dokumentasi" class="text-gray-600 hover:text-brand-600 font-medium transition">Dokumentasi Order</a>
+            </nav>
+
+            <div class="flex items-center space-x-4">
+                <button onclick="bukaKeranjang()" class="relative bg-gray-100 hover:bg-gray-200 p-2.5 rounded-full text-gray-700 transition">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span id="jumlah-keranjang" class="absolute -top-1 -right-1 bg-brand-600 text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Banner Hero -->
+    <section class="bg-gradient-to-r from-brand-600 to-emerald-800 text-white py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto text-center">
+            <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-3">Pusat Grosir Jersey Berkualitas</h1>
+            <p class="text-emerald-100 max-w-2xl mx-auto text-sm sm:text-base">Koleksi jersey olahraga premium untuk tim Anda. Minimum order 12 pcs dengan harga pabrik.</p>
+        </div>
+    </section>
+
+    <!-- Konten Utama -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
+        
+        <!-- Filter & Pencarian -->
+        <div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-8">
+            <!-- Kategori -->
+            <div id="kategori-container" class="flex flex-wrap gap-2 w-full md:w-auto">
+                <button onclick="filterKategori('Semua')" class="kategori-btn px-4 py-2 rounded-full text-sm font-medium bg-brand-600 text-white transition shadow-sm">Semua</button>
+                <button onclick="filterKategori('Sepak Bola')" class="kategori-btn px-4 py-2 rounded-full text-sm font-medium bg-white text-gray-600 hover:bg-gray-100 transition shadow-sm border border-gray-200">Sepak Bola</button>
+                <button onclick="filterKategori('Basket')" class="kategori-btn px-4 py-2 rounded-full text-sm font-medium bg-white text-gray-600 hover:bg-gray-100 transition shadow-sm border border-gray-200">Basket</button>
+                <button onclick="filterKategori('Esport')" class="kategori-btn px-4 py-2 rounded-full text-sm font-medium bg-white text-gray-600 hover:bg-gray-100 transition shadow-sm border border-gray-200">Esport</button>
+                <button onclick="filterKategori('Lainnya')" class="kategori-btn px-4 py-2 rounded-full text-sm font-medium bg-white text-gray-600 hover:bg-gray-100 transition shadow-sm border border-gray-200">Lainnya</button>
+            </div>
+
+            <!-- Kolom Pencarian -->
+            <div class="relative w-full md:w-72">
+                <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
+                    <i class="fa-solid fa-search"></i>
+                </span>
+                <input type="text" id="input-pencarian" oninput="cariProduk()" placeholder="Cari produk..." class="w-full pl-10 pr-4 py-2 bg-white border border-gray-200 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 shadow-sm">
+            </div>
+        </div>
+
+        <!-- Daftar Produk -->
+        <div id="daftar-produk" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <!-- Produk dirender otomatis via JavaScript -->
+        </div>
+
+        <!-- Pesan Jika Produk Kosong -->
+        <div id="pesan-kosong" class="hidden text-center py-16">
+            <i class="fa-solid fa-box-open text-4xl text-gray-300 mb-3"></i>
+            <p class="text-gray-500 font-medium">Produk tidak ditemukan.</p>
+        </div>
+
+        <!-- NEW SECTION: Katalog Desain -->
+        <div id="katalog-desain" class="mt-20 pt-16 border-t border-gray-200 scroll-mt-16">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-extrabold text-gray-900 mb-4">Katalog Referensi Desain</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Masih bingung menentukan desain? Pilih dari katalog motif kami atau bawa desain custom Anda sendiri (Free Desain Ulang!).</p>
+            </div>
+            <div id="daftar-desain" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <!-- Rendered by JS -->
+            </div>
+        </div>
+
+        <!-- NEW SECTION: Dokumentasi Order -->
+        <div id="dokumentasi" class="mt-20 pt-16 border-t border-gray-200 mb-10 scroll-mt-16">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-extrabold text-gray-900 mb-4">Galeri & Dokumentasi Produksi</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Bukti nyata kualitas jahitan dan sublimasi kami. Ratusan tim telah mempercayakan seragam mereka kepada JerseyPro.</p>
+            </div>
+            <div id="daftar-dokumentasi" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <!-- Rendered by JS -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal Detail Produk -->
+    <div id="modal-detail" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-2xl max-w-lg w-full overflow-hidden shadow-2xl transform transition-all">
+            <div class="relative">
+                <img id="modal-img" src="" alt="Detail Produk" class="w-full h-64 object-cover">
+                <button onclick="tutupModalDetail()" class="absolute top-3 right-3 bg-white/80 hover:bg-white text-gray-700 w-8 h-8 rounded-full flex items-center justify-center shadow transition">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="p-6">
+                <span id="modal-kategori" class="text-xs font-semibold text-brand-600 uppercase tracking-wider bg-brand-50 px-2.5 py-1 rounded-md"></span>
+                <h3 id="modal-nama" class="text-xl font-bold text-gray-900 mt-2 mb-1"></h3>
+                <p id="modal-harga" class="text-lg font-extrabold text-brand-700 mb-2"></p>
+                <div class="mb-4 inline-flex items-center gap-1.5 bg-orange-50 text-orange-600 px-2.5 py-1 rounded-md text-xs font-semibold border border-orange-100">
+                    <i class="fa-solid fa-box-open"></i> Min. Order: 12 pcs
+                </div>
+                <p id="modal-deskripsi" class="text-gray-600 text-sm leading-relaxed mb-6"></p>
+                <div class="flex justify-end gap-3">
+                    <button onclick="tutupModalDetail()" class="px-5 py-2.5 rounded-xl border border-gray-300 text-gray-700 text-sm font-medium hover:bg-gray-50 transition">Tutup</button>
+                    <button id="modal-btn-beli" onclick="" class="px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold shadow-md transition flex items-center gap-2">
+                        <i class="fa-solid fa-cart-plus"></i> Tambah ke Keranjang
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Keranjang Belanja -->
+    <div id="modal-keranjang" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-end hidden">
+        <div class="bg-white w-full max-w-md h-full flex flex-col shadow-2xl transform transition-transform">
+            <div class="p-4 border-b flex items-center justify-between bg-gray-50">
+                <h2 class="text-lg font-bold text-gray-900 flex items-center gap-2">
+                    <i class="fa-solid fa-cart-shopping text-brand-600"></i> Keranjang Belanja
+                </h2>
+                <button onclick="tutupKeranjang()" class="text-gray-400 hover:text-gray-600 p-2">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            
+            <div id="isi-keranjang" class="flex-grow overflow-y-auto p-4 space-y-4">
+                <!-- Item Keranjang -->
+            </div>
+
+            <div class="p-4 border-t bg-gray-50">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-gray-600 font-medium">Total Harga:</span>
+                    <span id="total-harga" class="text-xl font-bold text-brand-700">Rp 0</span>
+                </div>
+                <button onclick="checkout()" class="w-full bg-brand-600 hover:bg-brand-700 text-white py-3 rounded-xl font-semibold shadow-md transition flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-bag-shopping"></i> Checkout Sekarang
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Notifikasi / Pesan -->
+    <div id="modal-notif" class="fixed bottom-5 right-5 z-50 bg-gray-900 text-white px-4 py-3 rounded-xl shadow-xl flex items-center gap-3 transform translate-y-20 opacity-0 transition-all duration-300">
+        <i id="notif-ikon" class="fa-solid fa-circle-check text-brand-500 text-lg"></i>
+        <span id="notif-pesan" class="text-sm font-medium">Pesan sukses</span>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 mt-auto pt-10 pb-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <!-- Info Toko -->
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="bg-brand-600 text-white p-2 rounded-xl shadow-md">
+                            <i class="fa-solid fa-shirt text-xl"></i>
+                        </div>
+                        <span class="text-xl font-bold tracking-tight text-gray-900">JerseyPro</span>
+                    </div>
+                    <p class="text-gray-500 text-sm leading-relaxed">Pusat grosir jersey olahraga premium terpercaya. Melayani pembuatan seragam tim dengan kualitas terbaik dan minimum order yang terjangkau.</p>
+                </div>
+                
+                <!-- Kontak Admin -->
+                <div>
+                    <h4 class="text-gray-900 font-bold mb-4">Hubungi Kami</h4>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="https://wa.me/6283817075604" target="_blank" class="flex items-center gap-3 text-gray-600 hover:text-brand-600 transition group">
+                                <i class="fa-brands fa-whatsapp text-lg text-green-500 group-hover:scale-110 transition-transform"></i>
+                                <span class="text-sm">Admin 1 (0838-1707-5604)</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://wa.me/6283893868621" target="_blank" class="flex items-center gap-3 text-gray-600 hover:text-brand-600 transition group">
+                                <i class="fa-brands fa-whatsapp text-lg text-green-500 group-hover:scale-110 transition-transform"></i>
+                                <span class="text-sm">Admin 2 (0838-9386-8621)</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:globalzonee11@gmail.com" class="flex items-center gap-3 text-gray-600 hover:text-brand-600 transition group">
+                                <i class="fa-regular fa-envelope text-lg text-gray-500 group-hover:scale-110 transition-transform"></i>
+                                <span class="text-sm">globalzonee11@gmail.com</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Sosial Media -->
+                <div>
+                    <h4 class="text-gray-900 font-bold mb-4">Ikuti Kami</h4>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="https://instagram.com/globalzonee" target="_blank" class="flex items-center gap-3 text-gray-600 hover:text-pink-600 transition group">
+                                <i class="fa-brands fa-instagram text-lg text-pink-500 group-hover:scale-110 transition-transform"></i>
+                                <span class="text-sm">@globalzonee</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://tiktok.com/@globalzonee" target="_blank" class="flex items-center gap-3 text-gray-600 hover:text-black transition group">
+                                <i class="fa-brands fa-tiktok text-lg text-gray-800 group-hover:scale-110 transition-transform"></i>
+                                <span class="text-sm">@globalzonee</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-100 pt-6 text-center text-sm text-gray-500">
+                &copy; 2026 JerseyPro. Hak Cipta Dilindungi.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Logika JavaScript -->
+    <script>
+        // Data Produk Katalog
+        const produkList = [
+            {
+                id: 1,
+                nama: "Jersey Sepak Bola Timnas (Home)",
+                kategori: "Sepak Bola",
+                harga: 125000,
+                gambar: "https://images.unsplash.com/photo-1577471488278-16eec37ffcc2?auto=format&fit=crop&w=600&q=80",
+                deskripsi: "Jersey sepak bola berbahan dry-fit premium, menyerap keringat dengan cepat. Cocok untuk seragam tim dengan sablon nama dan nomor punggung."
+            },
+            {
+                id: 2,
+                nama: "Jersey Basket Pro Series",
+                kategori: "Basket",
+                harga: 110000,
+                gambar: "https://images.unsplash.com/photo-1519861531473-9200262188bf?auto=format&fit=crop&w=600&q=80",
+                deskripsi: "Setelan jersey basket tanpa lengan. Material mesh bernapas yang memberikan kenyamanan ekstra saat bermanuver di lapangan."
+            },
+            {
+                id: 3,
+                nama: "Jersey Esport Gaming Predator",
+                kategori: "Esport",
+                harga: 135000,
+                gambar: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600&q=80",
+                deskripsi: "Jersey khusus tim esport dengan desain futuristik. Bahan microfiber yang sejuk meskipun dipakai lama di ruang ber-AC."
+            },
+            {
+                id: 4,
+                nama: "Jersey Futsal Motif Gradasi",
+                kategori: "Sepak Bola",
+                harga: 95000,
+                gambar: "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=600&q=80",
+                deskripsi: "Jersey futsal setelan dengan desain gradasi warna modern. Harga terjangkau untuk kebutuhan turnamen komunitas."
+            },
+            {
+                id: 5,
+                nama: "Jersey Sepeda Aerodinamis",
+                kategori: "Lainnya",
+                harga: 150000,
+                gambar: "https://images.unsplash.com/photo-1557330359-ffb0deed6163?auto=format&fit=crop&w=600&q=80",
+                deskripsi: "Jersey sepeda ketat (slim fit) untuk aerodinamika maksimal. Dilengkapi kantong belakang untuk menyimpan botol minum atau energy bar."
+            },
+            {
+                id: 6,
+                nama: "Jersey Lari Dry-Fit Polos",
+                kategori: "Lainnya",
+                harga: 75000,
+                gambar: "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=600&q=80",
+                deskripsi: "Baju lari atau marathon berbahan super ringan. Mencegah iritasi pada kulit dan sangat cepat kering setelah dicuci."
+            }
+        ];
+
+        // Data Katalog Desain
+        const desainList = [
+            { id: 1, nama: "Motif Camo Abstrak", gambar: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&w=500&q=80" },
+            { id: 2, nama: "Motif Geometris 3D", gambar: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=500&q=80" },
+            { id: 3, nama: "Retro Klasik Strip", gambar: "https://images.unsplash.com/photo-1557672172-298e090bd0f1?auto=format&fit=crop&w=500&q=80" },
+            { id: 4, nama: "Gradasi Futuristik", gambar: "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?auto=format&fit=crop&w=500&q=80" }
+        ];
+
+        // Data Dokumentasi Order
+        const dokumentasiList = [
+            { id: 1, tim: "FC Garuda Raya", deskripsi: "Pembuatan 24 pcs Setelan Jersey Home & Away.", gambar: "https://images.unsplash.com/photo-1526232761682-d26e03ac148e?auto=format&fit=crop&w=600&q=80" },
+            { id: 2, tim: "Bulls Streetball", deskripsi: "Seragam lengkap tim basket komunitas lokal.", gambar: "https://images.unsplash.com/photo-1504450758481-7338eba7524a?auto=format&fit=crop&w=600&q=80" },
+            { id: 3, tim: "Spartan Runners", deskripsi: "40 pcs Jersey lari komunitas marathon.", gambar: "https://images.unsplash.com/photo-1511886929837-354d827aae26?auto=format&fit=crop&w=600&q=80" }
+        ];
+
+        let keranjang = [];
+        let kategoriAktif = 'Semua';
+
+        // Format Angka ke Rupiah
+        function formatRupiah(angka) {
+            return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(angka);
+        }
+
+        // Tampilkan Produk ke Halaman
+        function renderProduk(data) {
+            const container = document.getElementById('daftar-produk');
+            const pesanKosong = document.getElementById('pesan-kosong');
+            container.innerHTML = '';
+
+            if (data.length === 0) {
+                pesanKosong.classList.remove('hidden');
+                return;
+            } else {
+                pesanKosong.classList.add('hidden');
+            }
+
+            data.forEach(produk => {
+                const card = document.createElement('div');
+                card.className = "bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition overflow-hidden flex flex-col group";
+                card.innerHTML = `
+                    <div class="relative overflow-hidden cursor-pointer" onclick="bukaDetail(${produk.id})">
+                        <img src="${produk.gambar}" alt="${produk.nama}" class="w-full h-48 object-cover group-hover:scale-105 transition duration-300" onerror="this.src='https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80'">
+                        <span class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-brand-700 text-xs font-semibold px-2.5 py-1 rounded-md shadow-sm">${produk.kategori}</span>
+                    </div>
+                    <div class="p-4 flex flex-col flex-grow">
+                        <h3 onclick="bukaDetail(${produk.id})" class="font-bold text-gray-900 text-base mb-1 cursor-pointer hover:text-brand-600 transition line-clamp-1">${produk.nama}</h3>
+                        <p class="text-gray-500 text-xs mb-3 line-clamp-2">${produk.deskripsi}</p>
+                        <span class="text-[11px] font-semibold text-orange-600 bg-orange-50 w-fit px-2 py-0.5 rounded border border-orange-100 mb-3 flex items-center gap-1"><i class="fa-solid fa-box"></i> Min 12 pcs</span>
+                        <div class="mt-auto flex items-center justify-between">
+                            <span class="text-brand-700 font-extrabold text-base">${formatRupiah(produk.harga)}</span>
+                            <button onclick="tambahKeKeranjang(${produk.id})" class="bg-brand-50 hover:bg-brand-600 text-brand-600 hover:text-white p-2.5 rounded-xl transition shadow-sm">
+                                <i class="fa-solid fa-cart-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // Filter Berdasarkan Kategori
+        function filterKategori(kategori) {
+            kategoriAktif = kategori;
+            
+            // Perbarui Style Tombol Kategori
+            const tombols = document.querySelectorAll('.kategori-btn');
+            tombols.forEach(btn => {
+                if (btn.textContent.trim() === kategori) {
+                    btn.className = "kategori-btn px-4 py-2 rounded-full text-sm font-medium bg-brand-600 text-white transition shadow-sm";
+                } else {
+                    btn.className = "kategori-btn px-4 py-2 rounded-full text-sm font-medium bg-white text-gray-600 hover:bg-gray-100 transition shadow-sm border border-gray-200";
+                }
+            });
+
+            jalankanPencarianDanFilter();
+        }
+
+        // Fungsi Pencarian Produk
+        function cariProduk() {
+            jalankanPencarianDanFilter();
+        }
+
+        function jalankanPencarianDanFilter() {
+            const keyword = document.getElementById('input-pencarian').value.toLowerCase();
+            
+            const hasil = produkList.filter(produk => {
+                const cocokKategori = kategoriAktif === 'Semua' || produk.kategori === kategoriAktif;
+                const cocokKeyword = produk.nama.toLowerCase().includes(keyword) || produk.deskripsi.toLowerCase().includes(keyword);
+                return cocokKategori && cocokKeyword;
+            });
+
+            renderProduk(hasil);
+        }
+
+        // Modal Detail Produk
+        function bukaDetail(id) {
+            const produk = produkList.find(p => p.id === id);
+            if (!produk) return;
+
+            document.getElementById('modal-img').src = produk.gambar;
+            document.getElementById('modal-kategori').textContent = produk.kategori;
+            document.getElementById('modal-nama').textContent = produk.nama;
+            document.getElementById('modal-harga').textContent = formatRupiah(produk.harga);
+            document.getElementById('modal-deskripsi').textContent = produk.deskripsi;
+            document.getElementById('modal-btn-beli').setAttribute('onclick', `tambahKeKeranjang(${produk.id}); tutupModalDetail();`);
+            
+            document.getElementById('modal-detail').classList.remove('hidden');
+        }
+
+        function tutupModalDetail() {
+            document.getElementById('modal-detail').classList.add('hidden');
+        }
+
+        // Manajemen Keranjang Belanja
+        function tambahKeKeranjang(id) {
+            const produk = produkList.find(p => p.id === id);
+            const itemAda = keranjang.find(item => item.id === id);
+
+            if (itemAda) {
+                itemAda.jumlah += 1;
+            } else {
+                // Set default pembelian awal langsung 12 pcs
+                keranjang.push({ ...produk, jumlah: 12 });
+            }
+
+            perbaruiIndikatorKeranjang();
+            tampilkanNotif(`"${produk.nama}" (Min 12) ditambahkan ke keranjang!`);
+        }
+
+        function ubahJumlah(id, delta) {
+            const item = keranjang.find(i => i.id === id);
+            if (item) {
+                if (item.jumlah === 12 && delta === -1) {
+                    // Hapus produk dari keranjang jika mau diturunkan di bawah batas 12 pcs
+                    keranjang = keranjang.filter(i => i.id !== id);
+                    tampilkanNotif("Produk dihapus (batas minimum 12 pcs).", "error");
+                } else {
+                    item.jumlah += delta;
+                }
+            }
+            perbaruiIndikatorKeranjang();
+            renderIsiKeranjang();
+        }
+
+        function perbaruiIndikatorKeranjang() {
+            const totalItem = keranjang.reduce((sum, item) => sum + item.jumlah, 0);
+            document.getElementById('jumlah-keranjang').textContent = totalItem;
+        }
+
+        function bukaKeranjang() {
+            renderIsiKeranjang();
+            document.getElementById('modal-keranjang').classList.remove('hidden');
+        }
+
+        function tutupKeranjang() {
+            document.getElementById('modal-keranjang').classList.add('hidden');
+        }
+
+        function renderIsiKeranjang() {
+            const container = document.getElementById('isi-keranjang');
+            container.innerHTML = '';
+
+            if (keranjang.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-16 text-gray-400">
+                        <i class="fa-solid fa-cart-shopping text-4xl mb-3"></i>
+                        <p class="text-sm">Keranjang belanja Anda masih kosong.</p>
+                    </div>
+                `;
+                document.getElementById('total-harga').textContent = formatRupiah(0);
+                return;
+            }
+
+            let totalHarga = 0;
+
+            keranjang.forEach(item => {
+                totalHarga += item.harga * item.jumlah;
+                const div = document.createElement('div');
+                div.className = "flex items-center gap-4 bg-white p-3 rounded-xl border border-gray-100 shadow-sm";
+                div.innerHTML = `
+                    <img src="${item.gambar}" alt="${item.nama}" class="w-16 h-16 object-cover rounded-lg">
+                    <div class="flex-grow">
+                        <h4 class="font-semibold text-sm text-gray-800 line-clamp-1">${item.nama}</h4>
+                        <p class="text-xs text-brand-700 font-bold mt-0.5">${formatRupiah(item.harga)}</p>
+                        <div class="flex items-center gap-3 mt-2">
+                            <button onclick="ubahJumlah(${item.id}, -1)" class="w-6 h-6 bg-gray-100 hover:bg-red-100 hover:text-red-600 rounded-md flex items-center justify-center text-xs font-bold text-gray-600 transition">
+                                ${item.jumlah === 12 ? '<i class="fa-solid fa-trash-can text-[10px]"></i>' : '-'}
+                            </button>
+                            <span class="text-xs font-semibold">${item.jumlah}</span>
+                            <button onclick="ubahJumlah(${item.id}, 1)" class="w-6 h-6 bg-gray-100 hover:bg-gray-200 rounded-md flex items-center justify-center text-xs font-bold text-gray-600 transition">+</button>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+
+            document.getElementById('total-harga').textContent = formatRupiah(totalHarga);
+        }
+
+        function checkout() {
+            if (keranjang.length === 0) {
+                tampilkanNotif("Keranjang Anda masih kosong!", "error");
+                return;
+            }
+            tampilkanNotif("Pesanan berhasil diproses! Terima kasih.");
+            keranjang = [];
+            perbaruiIndikatorKeranjang();
+            tutupKeranjang();
+        }
+
+        // Sistem Notifikasi Toast
+        function tampilkanNotif(pesan, tipe = "success") {
+            const notif = document.getElementById('modal-notif');
+            const teksNotif = document.getElementById('notif-pesan');
+            const ikonNotif = document.getElementById('notif-ikon');
+
+            teksNotif.textContent = pesan;
+            if (tipe === "error") {
+                ikonNotif.className = "fa-solid fa-circle-exclamation text-red-500 text-lg";
+            } else {
+                ikonNotif.className = "fa-solid fa-circle-check text-brand-500 text-lg";
+            }
+
+            notif.classList.remove('translate-y-20', 'opacity-0');
+            notif.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                notif.classList.remove('translate-y-0', 'opacity-100');
+                notif.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        // Inisialisasi awal saat halaman dimuat
+        window.onload = function() {
+            renderProduk(produkList);
+            renderDesain();
+            renderDokumentasi();
+        };
+
+        // Fungsi Render Galeri Desain
+        function renderDesain() {
+            const container = document.getElementById('daftar-desain');
+            desainList.forEach(desain => {
+                container.innerHTML += `
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden group">
+                        <div class="h-48 overflow-hidden relative">
+                            <img src="${desain.gambar}" alt="${desain.nama}" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition flex items-center justify-center">
+                                <a href="https://wa.me/6283817075604?text=Halo%20Admin,%20saya%20ingin%20konsultasi%20pembuatan%20jersey%20menggunakan%20${encodeURIComponent(desain.nama)}" target="_blank" class="opacity-0 group-hover:opacity-100 bg-brand-600 text-white px-4 py-2 rounded-lg font-medium transform translate-y-4 group-hover:translate-y-0 transition duration-300 text-sm flex items-center gap-2">
+                                    <i class="fa-brands fa-whatsapp text-lg"></i> Pakai Desain Ini
+                                </a>
+                            </div>
+                        </div>
+                        <div class="p-3 text-center bg-gray-50 border-t border-gray-100">
+                            <h4 class="font-semibold text-gray-800 text-sm">${desain.nama}</h4>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        // Fungsi Render Dokumentasi
+        function renderDokumentasi() {
+            const container = document.getElementById('daftar-dokumentasi');
+            dokumentasiList.forEach(dok => {
+                container.innerHTML += `
+                    <div class="bg-white rounded-2xl shadow-sm hover:shadow-md transition border border-gray-100 p-4">
+                        <img src="${dok.gambar}" alt="${dok.tim}" class="w-full h-48 object-cover rounded-xl mb-4">
+                        <h4 class="font-bold text-gray-900 text-lg mb-1">${dok.tim}</h4>
+                        <p class="text-gray-600 text-sm flex items-start gap-2">
+                            <i class="fa-solid fa-circle-check text-brand-500 mt-1"></i>
+                            <span>${dok.deskripsi}</span>
+                        </p>
+                    </div>
+                `;
+            });
+        }
+    </script>
+</body>
+</html>

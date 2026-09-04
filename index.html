@@ -408,7 +408,7 @@ let cartList = [];
         function renderAll() {
             const refGrid = document.getElementById('design-grid');
             refGrid.innerHTML = '';
-            designGalleries.forEach(item => {
+            designGalleries.slice(0, 6).forEach(item => {
                 const waMessage = encodeURIComponent(`Halo Admin Global Zone, saya ingin konsultasi desain jersey berdasarkan referensi: ${item.name}`);
                 refGrid.innerHTML += `
                     <div class="bg-slate-900/60 border border-slate-800 rounded-3xl overflow-hidden group hover:border-neon-cyan/50 transition-all flex flex-col justify-between backdrop-blur-md">

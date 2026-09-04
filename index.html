@@ -366,18 +366,61 @@
 
     <script>
         const designGalleries = [
-            { id: 1, name: "Global Cyber Neon Home", tag: "Referensi Siap Produksi", desc: "Desain futuristik dengan aksen garis neon cyan dan pola aerodinamis kelas utama.", image: "images/2.png" },
-            { id: 2, name: "Global Esport Phantom Edition", tag: "Referensi Siap Produksi", desc: "Motif gaming taktis profesional dengan kombinasi warna gelap kontras tinggi.", image: "images/3.png" },
-            { id: 3, name: "Global Aero Pulse Running", tag: "Referensi Siap Produksi", desc: "Pola gradasi dinamis ultra-ringan khusus untuk atlet lari dan komunitas.", image: "images/4.png" },
-            { id: 4, name: "Global Apex Crimson Strike", tag: "Referensi Siap Produksi", desc: "Kombinasi warna merah menyala dan hitam memberikan aura ketegasan di lapangan.", image: "images/5.png" }
+    { 
+        id: 1, 
+        name: "Global Cyber Neon Home", 
+        tag: "Referensi Siap Produksi", 
+        desc: "Desain futuristik dengan aksen garis neon cyan dan pola aerodinamis kelas utama.", 
+        image: "images/2.png" 
+    },
+    { 
+        id: 2, 
+        name: "Global Esport Phantom Edition", 
+        tag: "Referensi Siap Produksi", 
+        desc: "Motif gaming taktis profesional dengan kombinasi warna gelap kontras tinggi.", 
+        image: "images/3.png" 
+    },
+    { 
+        id: 3, 
+        name: "Global Aero Pulse Running", 
+        tag: "Referensi Siap Produksi", 
+        desc: "Pola gradasi dinamis ultra-ringan khusus untuk atlet lari dan komunitas.", 
+        image: "images/4.png" 
+    },
+    { 
+        id: 4, 
+        name: "Global Apex Crimson Strike", 
+        tag: "Referensi Siap Produksi", 
+        desc: "Kombinasi warna merah menyala dan hitam memberikan aura ketegasan di lapangan.", 
+        image: "images/5.png" 
+    }
+];
 
-        const catalogProducts = [
-            { id: 1, name: "Paket Futsal Global Cyber (Min. 6 Pcs)", pricePerPcs: 195000, desc: "Paket lengkap jersey futsal dengan bahan micro-dryfit aerodinamis.", image: "https://images.unsplash.com/photo-1518063319789-7217e6706904?auto=format&fit=crop&w=600&q=80" },
-            { id: 2, name: "Paket Esport Global Phantom (Min. 6 Pcs)", pricePerPcs: 215000, desc: "Jersey gaming profesional dengan cetak sublimasi 8K HD anti luntur.", image: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=600&q=80" },
-            { id: 3, name: "Paket Running Aero Pulse (Min. 6 Pcs)", pricePerPcs: 175000, desc: "Sangat ringan dengan teknologi Air-Flow Micro Pores untuk pelari jarak jauh.", image: "https://images.unsplash.com/photo-1517649763962-0c62366601c9?auto=format&fit=crop&w=600&q=80" }
-        ];
+const catalogProducts = [
+    { 
+        id: 1, 
+        name: "Paket Futsal Global Cyber (Min. 6 Pcs)", 
+        pricePerPcs: 195000, 
+        desc: "Paket lengkap jersey futsal dengan bahan micro-dryfit aerodinamis.", 
+        image: "images/2.png" 
+    },
+    { 
+        id: 2, 
+        name: "Paket Esport Global Phantom (Min. 6 Pcs)", 
+        pricePerPcs: 215000, 
+        desc: "Jersey gaming profesional dengan cetak sublimasi 8K HD anti luntur.", 
+        image: "images/3.png" 
+    },
+    { 
+        id: 3, 
+        name: "Paket Running Aero Pulse (Min. 6 Pcs)", 
+        pricePerPcs: 175000, 
+        desc: "Sangat ringan dengan teknologi Air-Flow Micro Pores untuk pelari jarak jauh.", 
+        image: "images/4.png" 
+    }
+];
 
-        let cartList = [];
+let cartList = [];
 
         function renderAll() {
             const refGrid = document.getElementById('design-grid');

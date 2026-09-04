@@ -126,7 +126,14 @@
             </div>
 
             <div id="design-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
-        </div>
+
+            <div class="flex justify-center mt-10">
+                <button id="show-all-designs"
+                    onclick="renderDesigns(0)"
+                    class="px-6 py-3 rounded-xl bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition">
+                    Lihat Semua Desain
+                </button>
+            </div>
     </section>
 
     <!-- BAGIAN 2: Katalog Pesanan Berharga (Min 6 Pcs) -->
@@ -405,32 +412,53 @@ const catalogProducts = [
 
 let cartList = [];
 
-        function renderAll() {
-            const refGrid = document.getElementById('design-grid');
-            refGrid.innerHTML = '';
-            designGalleries.slice(0, 6).forEach(item => {
-                const waMessage = encodeURIComponent(`Halo Admin Global Zone, saya ingin konsultasi desain jersey berdasarkan referensi: ${item.name}`);
-                refGrid.innerHTML += `
-                    <div class="bg-slate-900/60 border border-slate-800 rounded-3xl overflow-hidden group hover:border-neon-cyan/50 transition-all flex flex-col justify-between backdrop-blur-md">
-                        <div>
-                            <div class="relative h-64 overflow-hidden bg-slate-950">
-                                <img src="${item.image}" alt="${item.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                                <span class="absolute top-4 right-4 bg-neon-cyan text-slate-950 text-xs font-black px-3 py-1 rounded-full uppercase tracking-wider shadow-lg">${item.tag}</span>
-                            </div>
-                            <div class="p-6">
-                                <h3 class="font-extrabold text-lg text-white group-hover:text-neon-cyan transition-colors">${item.name}</h3>
-                                <p class="text-slate-400 text-xs mt-2 leading-relaxed">${item.desc}</p>
-                            </div>
-                        </div>
-                        <div class="p-6 pt-0 flex items-center justify-between border-t border-slate-800/60 mt-4">
-                            <span class="text-xs text-slate-400 font-medium"><i class="fa-solid fa-eye text-neon-cyan mr-1"></i> Referensi Visual</span>
-                            <a href="https://wa.me/6283817075604?text=${waMessage}" target="_blank" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-neon-cyan text-white hover:text-slate-950 font-extrabold text-xs transition-all flex items-center gap-2">
-                                <i class="fa-brands fa-whatsapp text-sm"></i> Konsultasi
-                            </a>
-                        </div>
+        function showAllDesigns() {
+    const refGrid = document.getElementById('design-grid');
+
+    refGrid.innerHTML = '';
+
+    designGalleries.forEach(item => {
+        const waMessage = encodeURIComponent(
+            `Halo Admin Global Zone, saya ingin konsultasi desain jersey berdasarkan referensi: ${item.name}`
+        );
+
+        refGrid.innerHTML += `
+            <div class="bg-slate-900/60 border border-slate-800 rounded-3xl overflow-hidden group hover:border-neon-cyan/50 transition-all flex flex-col justify-between backdrop-blur-md">
+
+                <div>
+                    <div class="relative h-64 overflow-hidden bg-slate-950">
+                        <img 
+                            src="${item.image}" 
+                            alt="${item.name}"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        >
                     </div>
-                `;
-            });
+
+                    <div class="p-6">
+                        <h3 class="font-extrabold text-lg text-white group-hover:text-neon-cyan transition-colors">
+                            ${item.name}
+                        </h3>
+                    </div>
+                </div>
+
+                <div class="p-6 pt-0">
+                    <a 
+                        href="https://wa.me/6283817075604?text=${waMessage}"
+                        target="_blank"
+                        class="w-full px-4 py-2 rounded-xl bg-slate-800 hover:bg-neon-cyan text-white hover:text-slate-950 font-extrabold text-xs transition-all flex items-center justify-center gap-2"
+                    >
+                        <i class="fa-brands fa-whatsapp"></i>
+                        Konsultasi
+                    </a>
+                </div>
+
+            </div>
+        `;
+    });
+
+    // Sembunyikan tombol setelah semua desain ditampilkan
+    event.target.style.display = 'none';
+}
 
             const prodGrid = document.getElementById('product-grid');
             prodGrid.innerHTML = '';

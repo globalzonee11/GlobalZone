@@ -262,41 +262,34 @@
         </div>
     </section>
 
-    <!-- Teknologi Kain -->
-    <section id="teknologi" class="py-24 bg-slate-900/30 border-t border-slate-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-16">
-                <span class="text-neon-cyan text-xs font-black uppercase tracking-widest">Inovasi Material</span>
-                <h2 class="text-3xl sm:text-4xl font-black tracking-tight mt-2">Teknologi Kain</h2>
-            </div>
+<!-- Teknologi Kain -->
+<section id="teknologi" class="py-24 bg-slate-900/30 border-t border-slate-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-slate-900/60 border border-slate-800 rounded-3xl p-8 hover:border-neon-cyan/50 transition-all backdrop-blur-md">
-                    <div class="w-14 h-14 rounded-2xl bg-neon-cyan/10 border border-neon-cyan/30 flex items-center justify-center text-neon-cyan text-2xl mb-6">
-                        <i class="fa-solid fa-wind"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Air-Flow Micro Pores</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">Struktur tenun berpori mikro yang mempercepat penguapan keringat 3x lebih cepat dibanding kain biasa.</p>
-                </div>
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="text-neon-cyan text-xs font-black uppercase tracking-widest">
+                Inovasi Material
+            </span>
 
-                <div class="bg-slate-900/60 border border-slate-800 rounded-3xl p-8 hover:border-neon-cyan/50 transition-all backdrop-blur-md">
-                    <div class="w-14 h-14 rounded-2xl bg-neon-cyan/10 border border-neon-cyan/30 flex items-center justify-center text-neon-cyan text-2xl mb-6">
-                        <i class="fa-solid fa-shield-sparkles"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Sublimasi 8K HD Color</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">Tinta impor beresolusi tinggi menembus serat kain secara permanen, dijamin tidak luntur atau pecah.</p>
-                </div>
+            <h2 class="text-3xl sm:text-4xl font-black tracking-tight mt-2">
+                Teknologi & Jenis Kain
+            </h2>
 
-                <div class="bg-slate-900/60 border border-slate-800 rounded-3xl p-8 hover:border-neon-cyan/50 transition-all backdrop-blur-md">
-                    <div class="w-14 h-14 rounded-2xl bg-neon-cyan/10 border border-neon-cyan/30 flex items-center justify-center text-neon-cyan text-2xl mb-6">
-                        <i class="fa-solid fa-bolt-lightning"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Ultra-Stretch Flex</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">Fleksibilitas 4 arah yang mengikuti setiap gerakan ekstrem atlet tanpa takut robek atau melar berlebih.</p>
-                </div>
-            </div>
+            <p class="text-slate-400 text-sm mt-3">
+                Pilihan material berkualitas untuk memberikan kenyamanan,
+                performa, dan tampilan terbaik pada jersey Anda.
+            </p>
         </div>
-    </section>
+
+        <!-- KATALOG KAIN -->
+        <div id="fabric-grid"
+             class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        </div>
+
+    </div>
+</section>
+```
+
 
     <!-- Footer dengan Sosmed Lengkap -->
     <footer class="bg-[#030306] border-t border-slate-900 py-16">
@@ -443,6 +436,140 @@ const catalogProducts = [
         image: "images/JERSEY4.png" 
     },
 ];
+
+const fabricTypes = [
+    {
+        id: 1,
+        name: "Dry Fit Milano",
+        image: "images/kain-milano.jpg",
+        desc: "Kain polyester dengan karakter ringan, adem, dan nyaman digunakan untuk berbagai aktivitas olahraga.",
+        features: [
+            "Ringan dan nyaman",
+            "Cepat kering",
+            "Sirkulasi udara baik",
+            "Cocok untuk sublimasi"
+        ]
+    },
+
+    {
+        id: 2,
+        name: "Embosh Topo",
+        image: "images/kain-embosh-topo.jpg",
+        desc: "Kain dengan tekstur emboss yang memberikan tampilan lebih premium dan karakter visual yang menarik pada jersey.",
+        features: [
+            "Tekstur premium",
+            "Tampilan lebih eksklusif",
+            "Nyaman digunakan",
+            "Cocok untuk jersey custom"
+        ]
+    },
+
+    {
+        id: 3,
+        name: "Dry Fit Premium",
+        image: "images/kain-dryfit.jpg",
+        desc: "Material olahraga yang dirancang untuk memberikan kenyamanan dan membantu menjaga tubuh tetap terasa ringan saat beraktivitas.",
+        features: [
+            "Nyaman untuk olahraga",
+            "Ringan",
+            "Cepat kering",
+            "Mudah diaplikasikan sublimasi"
+        ]
+    },
+
+    {
+        id: 4,
+        name: "Dry Fit Mewah",
+        image: "images/kain-mewah.jpg",
+        desc: "Material dengan karakter lembut dan tampilan premium yang cocok untuk kebutuhan jersey eksklusif.",
+        features: [
+            "Tekstur lembut",
+            "Tampilan premium",
+            "Nyaman digunakan",
+            "Cocok untuk berbagai desain"
+        ]
+    }
+];
+
+function renderFabrics() {
+    const fabricGrid = document.getElementById('fabric-grid');
+
+    if (!fabricGrid) return;
+
+    fabricGrid.innerHTML = '';
+
+    fabricTypes.forEach(item => {
+
+        const featureList = item.features.map(feature => `
+            <li class="flex items-center gap-2">
+                <i class="fa-solid fa-check text-neon-cyan"></i>
+                ${feature}
+            </li>
+        `).join('');
+
+        fabricGrid.innerHTML += `
+            <div class="bg-slate-900/60 border border-slate-800 
+                        rounded-3xl overflow-hidden group 
+                        hover:border-neon-cyan/50 transition-all 
+                        backdrop-blur-md">
+
+                <!-- GAMBAR KAIN -->
+                <div class="relative h-64 overflow-hidden bg-slate-950">
+
+                    <img 
+                        src="${item.image}"
+                        alt="${item.name}"
+                        class="w-full h-full object-cover 
+                               group-hover:scale-105 
+                               transition-transform duration-500"
+                        onerror="this.src='images/no-image.jpg'"
+                    >
+
+                    <div class="absolute top-4 left-4 
+                                bg-slate-950/80 backdrop-blur-md
+                                border border-neon-cyan/30
+                                text-neon-cyan text-xs font-black
+                                px-3 py-1.5 rounded-full">
+                        MATERIAL
+                    </div>
+
+                </div>
+
+                <!-- INFORMASI KAIN -->
+                <div class="p-6">
+
+                    <h3 class="font-extrabold text-xl text-white 
+                               group-hover:text-neon-cyan 
+                               transition-colors">
+                        ${item.name}
+                    </h3>
+
+                    <p class="text-slate-400 text-sm mt-3 leading-relaxed">
+                        ${item.desc}
+                    </p>
+
+                    <!-- KELEBIHAN -->
+                    <div class="mt-5 pt-5 border-t border-slate-800">
+
+                        <h4 class="text-xs font-black uppercase 
+                                   tracking-wider text-slate-300 mb-3">
+                            Karakteristik
+                        </h4>
+
+                        <ul class="space-y-2 text-xs 
+                                   font-semibold text-slate-400">
+                            ${featureList}
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+        `;
+    });
+}
+```
 
 let cartList = [];
         function renderDesigns(limit = 6) {
@@ -668,8 +795,9 @@ function renderAll() {
         }
 
         window.onload = function() {
-            renderAll();
-        };
+    renderAll();
+    renderFabrics();
+    };
     </script>
 </body>
 </html>

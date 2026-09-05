@@ -322,7 +322,7 @@
                     font-black
                     text-neon-cyan">
 
-                    6 Pcs
+                    12 Pcs
 
                 </div>
 
@@ -446,13 +446,13 @@
             </div>
     </section>
 
-    <!-- BAGIAN 2: Katalog Pesanan Berharga (Min 6 Pcs) -->
+    <!-- BAGIAN 2: Katalog Pesanan Berharga (Min 12 Pcs) -->
     <section id="katalog-harga" class="py-24 border-t border-slate-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-16">
                 <span class="text-neon-cyan text-xs font-black uppercase tracking-widest">Pemesanan Tim Profesional</span>
                 <h2 class="text-3xl sm:text-4xl font-black tracking-tight mt-2">Katalog & Rincian Harga Pesanan</h2>
-                <p class="text-slate-400 text-sm mt-3">Pesan batch tim Anda dengan harga transparan per pcs (Minimum order 6 pcs).</p>
+                <p class="text-slate-400 text-sm mt-3">Pesan batch tim Anda dengan harga transparan per pcs (Minimum order 12 pcs).</p>
             </div>
 
             <div id="product-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
@@ -973,7 +973,7 @@ function renderCatalog() {
                         >
 
                         <span class="absolute top-4 right-4 bg-slate-950/80 backdrop-blur-md border border-slate-800 text-neon-cyan text-xs font-black px-3 py-1 rounded-full uppercase tracking-wider">
-                            Min. 6 Pcs
+                            Min. 12 Pcs
                         </span>
                     </div>
 
@@ -1005,7 +1005,7 @@ function renderCatalog() {
                         class="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-neon-cyan text-white hover:text-slate-950 font-extrabold text-xs transition-all flex items-center gap-2"
                     >
                         <i class="fa-solid fa-cart-plus"></i>
-                        Pesan (6 Pcs)
+                        Pesan (12 Pcs)
                     </button>
 
                 </div>
@@ -1025,12 +1025,12 @@ function renderAll() {
             const totalBatchPrice = prod.pricePerPcs * 6;
             cartList.push({
                 name: prod.name,
-                specs: `Paket Tim (6 Pcs) | Ukuran: Mix/Standar`,
+                specs: `Paket Tim (12 Pcs) | Ukuran: Mix/Standar`,
                 price: totalBatchPrice,
                 qty: 6
             });
             updateCartBadge();
-            showToast('Paket 6 Pcs berhasil dimasukkan ke keranjang!');
+            showToast('Paket 12 Pcs berhasil dimasukkan ke keranjang!');
         }
 
         function updateCartBadge() {

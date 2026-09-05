@@ -733,6 +733,8 @@ function renderFabrics() {
                     <img 
                         src="${item.image}"
                         alt="${item.name}"
+                        loading="lazy"
+                        decoding="async"
                         class="w-full h-full object-cover 
                                group-hover:scale-105 
                                transition-transform duration-500"
@@ -809,6 +811,8 @@ let cartList = [];
                         <img 
                             src="${item.image}" 
                             alt="${item.name}"
+                            loading="lazy"
+                            decoding="async"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         >
                     </div>
@@ -863,6 +867,8 @@ function renderCatalog() {
                         <img 
                             src="${item.image}" 
                             alt="${item.name}" 
+                            loading="lazy"
+                            decoding="async"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         >
 

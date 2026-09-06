@@ -1,20 +1,88 @@
-/* GLOBAL ZONE - FINAL RESPONSIVE GRID */
-#product-grid,#design-grid,#fabric-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:20px!important;width:100%!important;}
-#product-grid>*,#design-grid>*,#fabric-grid>*{width:100%!important;min-width:0!important;grid-column:auto!important;grid-row:auto!important;}
-@media (max-width:767px){#product-grid,#design-grid,#fabric-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important;}}
-@media (max-width:400px){#product-grid,#design-grid,#fabric-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:6px!important;}}
-/* =========================
-   SAMPUL GALERI
-========================= */
+<!DOCTYPE html>
+<!-- Global Zone Gallery Update -->
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Galeri Referensi | Global Cloth Zone</title>
+<meta name="description" content="Galeri referensi jersey custom Global Cloth Zone.">
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;color:#fff;background:#020817;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;background:
+radial-gradient(circle at 20% 35%,rgba(0,205,255,.10),transparent 28%),
+radial-gradient(circle at 80% 25%,rgba(112,40,255,.16),transparent 32%);z-index:-1}
 
+.header{position:sticky;top:0;z-index:50;background:rgba(2,7,18,.95);border-bottom:1px solid #18243a;backdrop-filter:blur(14px)}
+.nav{height:58px;max-width:1320px;margin:auto;padding:7px 22px;display:flex;align-items:center;gap:25px}
+.logo{width:94px;height:43px;object-fit:contain;display:block}
+.menu{display:flex;align-items:center;justify-content:center;gap:31px;flex:1;color:#8e9db3;font-size:12px;font-weight:700}
+.menu a:hover{color:#fff}
+.actions{display:flex;align-items:center;gap:9px}
+.cart{width:36px;height:36px;display:grid;place-items:center;border-radius:10px;background:#101b2e;border:1px solid #26344d;font-size:16px}
+.order{padding:11px 17px;border-radius:10px;background:linear-gradient(100deg,#00dff1,#2864ed);font-size:12px;font-weight:800;box-shadow:0 7px 25px rgba(0,180,255,.15)}
+
+.hero{max-width:1250px;margin:auto;padding:74px 20px 0;text-align:center}
+.kicker{font-size:10px;letter-spacing:2px;font-weight:800;color:#22dff8;text-transform:uppercase;margin-bottom:14px}
+.hero h1{font-size:clamp(38px,6vw,66px);line-height:1.02;letter-spacing:-2.8px;margin:0;font-weight:900}
+.hero h1 .g{display:block;background:linear-gradient(90deg,#00e8ff,#4da6ff,#7226ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{max-width:700px;margin:17px auto 0;color:#8da0b8;font-size:13px;line-height:1.7}
+
+.stats{max-width:1000px;margin:36px auto 48px;padding:20px 0;border-top:1px solid #1a2a43;border-bottom:1px solid #122039;display:grid;grid-template-columns:repeat(4,1fr)}
+.stat{text-align:center}
+.stat strong{display:block;font-size:25px;font-weight:900;background:linear-gradient(90deg,#00eaff,#4b9dff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat small{display:block;margin-top:7px;color:#71839d;font-size:9px;text-transform:uppercase;letter-spacing:.7px;font-weight:700}
+
+.wrap{max-width:1200px;margin:auto;padding:0 20px 70px}
+.heading{display:flex;justify-content:space-between;align-items:end;margin-bottom:20px}
+.heading h2{margin:0;font-size:25px;font-weight:900}
+.heading h2 span{color:#16dcf4}
+.count{font-size:11px;color:#71839d;font-weight:700}
+
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.card{position:relative;overflow:hidden;border-radius:16px;background:linear-gradient(145deg,#0d1a30,#050c1b);border:1px solid #1d3453;box-shadow:0 12px 35px rgba(0,0,0,.28);transition:.22s}
+.card:hover{transform:translateY(-5px);border-color:#16d8f3;box-shadow:0 15px 40px rgba(0,185,255,.12)}
+.photo{aspect-ratio:1/1;background:#07111f;overflow:hidden}
+.photo img{width:100%;height:100%;display:block;object-fit:cover;transition:transform .35s}
+.card:hover .photo img{transform:scale(1.035)}
+.info{padding:13px 15px 15px}
+.name{font-size:14px;font-weight:900;margin-bottom:4px}
+.desc{font-size:10px;color:#7188a5}
+.badge{position:absolute;z-index:2;top:10px;left:10px;padding:5px 8px;border-radius:20px;background:rgba(2,8,23,.78);border:1px solid #1c6a7a;color:#6eeaff;font-size:8px;font-weight:800}
+
+.pagination{display:flex;justify-content:center;flex-wrap:wrap;gap:7px;margin-top:30px}
+.pagination button{height:40px;min-width:40px;border-radius:9px;border:1px solid #263952;background:#0a1628;color:#a9bad0;font-weight:800;cursor:pointer}
+.pagination button:hover{border-color:#17d8f3;color:#fff}
+.pagination button.active{border-color:transparent;background:linear-gradient(100deg,#00d9ed,#285fee);color:#fff}
+.pagination button:disabled{opacity:.35;cursor:not-allowed}
+
+footer{border-top:1px solid #14233a;background:#010611;text-align:center;padding:28px 15px;color:#6f829d;font-size:11px;line-height:1.8}
+footer strong{color:#fff;letter-spacing:1px}
+
+@media(max-width:900px){.menu{gap:15px}.menu a:nth-child(4),.menu a:nth-child(5){display:none}}
+@media(max-width:767px){
+.nav{height:56px;padding:7px 11px}.logo{width:82px}.menu{display:none}.actions{margin-left:auto}.cart{width:34px;height:34px}.order{padding:10px 13px;font-size:11px}
+.hero{padding:55px 13px 0}.hero h1{font-size:39px;letter-spacing:-1.7px}.hero p{font-size:11px}
+.stats{grid-template-columns:repeat(2,1fr);gap:17px;margin:28px auto 35px;padding:17px 0}.stat strong{font-size:22px}.stat small{font-size:8px}
+.wrap{padding:0 10px 50px}.heading h2{font-size:20px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.card{border-radius:11px}.info{padding:9px}.name{font-size:12px}.desc{font-size:9px}.badge{font-size:7px;top:7px;left:7px;padding:4px 6px}
+.pagination{gap:5px;margin-top:22px}.pagination button{min-width:35px;height:35px;padding:0 8px}
+}
+
+
+/* SAMPUL GALERI */
 .gallery-cover{
+    display:block;
     width:100%;
     max-width:1200px;
-    margin:0 auto 45px;
+    margin:35px auto 45px;
     padding:0 20px;
 }
 
 .gallery-cover-box{
+    display:block;
     width:100%;
     height:430px;
     overflow:hidden;
@@ -28,92 +96,194 @@
     width:100%;
     height:100%;
     object-fit:cover;
-    object-position:left center;
+    object-position:center center;
 }
 
-/* HP */
 @media(max-width:767px){
-
     .gallery-cover{
         padding:0 10px;
-        margin-bottom:30px;
+        margin:25px auto 30px;
     }
 
     .gallery-cover-box{
         height:260px;
         border-radius:12px;
     }
+}
 
-    .gallery-cover-box img{
-        object-position:left center;
+</style>
+</head>
+<body>
+<header class="header">
+<nav class="nav">
+<a href="index.html"><img class="logo" src="LOGO2.webp" alt="Global Cloth Zone"></a>
+<div class="menu">
+<a href="galeri.html">Galeri Referensi</a>
+<a href="index.html#katalog">Katalog & Harga</a>
+<a href="index.html#ulasan">Ulasan Tim</a>
+<a href="index.html#pembayaran">Pembayaran</a>
+<a href="index.html#teknologi">Teknologi Kain</a>
+</div>
+<div class="actions"><a class="cart" href="index.html#katalog">🛒</a><a class="order" href="https://wa.me/6283817075604">Pesan Tim →</a></div>
+</nav>
+</header>
+
+<section class="hero">
+
+    <div class="kicker">
+        GLOBAL CLOTH ZONE • GALERI REFERENSI
+    </div>
+
+    <h1>
+        Evolusi Performa Tim Melalui
+        <span class="g">Desain Spektakuler</span>
+    </h1>
+
+    <p>
+        Eksplorasi desain jersey custom berkualitas bersama Global Zone.
+        Temukan inspirasi untuk tim, komunitas, sekolah, futsal,
+        sepak bola, voli, badminton, dan kebutuhan lainnya.
+    </p>
+
+    <div class="stats">
+
+        <div class="stat">
+            <strong>12 Pcs</strong>
+            <small>Minimum Pemesanan Tim</small>
+        </div>
+
+        <div class="stat">
+            <strong>100%</strong>
+            <small>Anti Luntur & UV</small>
+        </div>
+
+        <div class="stat">
+            <strong>250+</strong>
+            <small>Club Voli dan Futsal</small>
+        </div>
+
+        <div class="stat">
+            <strong>4.9★</strong>
+            <small>Rating Kepuasan</small>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==============================
+     SAMPUL GALERI
+================================ -->
+
+<div class="gallery-cover">
+    <div class="gallery-cover-box">
+        <img src="images/SAMPUL1.webp" alt="Global Cloth Zone Jersey Custom">
+    </div>
+</div>
+
+<!-- ==============================
+     KOLEKSI DESAIN
+================================ -->
+
+<main class="wrap">
+
+    <div class="heading">
+        <h2>Koleksi <span>Desain</span></h2>
+        <div class="count" id="count"></div>
+    </div>
+
+    <div id="gallery" class="grid"></div>
+
+    <div id="pagination" class="pagination"></div>
+
+</main>
+<footer><strong>GLOBAL CLOTH ZONE</strong><br>Jersey Custom Berkualitas • Desain Sesuai Keinginan Anda<br>TikTok: @globalzonee • Instagram: @globalzonee • Facebook: Global Zone<br>WhatsApp: 083817075604 • 083893868621</footer>
+<script>
+  const TOTAL_DESIGNS = 98;
+  const PER_PAGE = 12;
+  let currentPage = 1;
+
+  const gallery = document.getElementById('gallery');
+  const pagination = document.getElementById('pagination');
+  const count = document.getElementById('count');
+
+  function makeCard(number){
+    const card = document.createElement('article');
+    card.className = 'card';
+
+    const photo = document.createElement('div');
+    photo.className = 'photo';
+
+    const img = document.createElement('img');
+    img.src = `images/${number}.webp`;
+    img.alt = `Jersey Custom ${String(number).padStart(2,'0')}`;
+    img.loading = 'lazy';
+    img.onerror = () => {
+      card.remove();
+    };
+
+    const info = document.createElement('div');
+    info.className = 'info';
+
+    const name = document.createElement('div');
+    name.className = 'name';
+    name.textContent = `Jersey ${String(number).padStart(2,'0')}`;
+
+    const desc = document.createElement('div');
+    desc.className = 'desc';
+    desc.textContent = 'Desain jersey custom Global Zone';
+
+    photo.appendChild(img);
+    info.appendChild(name);
+    info.appendChild(desc);
+    card.appendChild(photo);
+    card.appendChild(info);
+
+    return card;
+  }
+
+  function render(){
+    gallery.innerHTML = '';
+
+    const start = (currentPage - 1) * PER_PAGE + 1;
+    const end = Math.min(start + PER_PAGE - 1, TOTAL_DESIGNS);
+
+    for(let i = start; i <= end; i++){
+      gallery.appendChild(makeCard(i));
     }
-}
-/* =========================
-   FIX SAMPUL GALERI
-========================= */
 
-.cover{
-    display:block !important;
-    width:100% !important;
-    max-width:none !important;
-    margin:0 !important;
-    padding:0 !important;
-}
+    count.textContent = `Desain ${start}–${end} dari ${TOTAL_DESIGNS}`;
+    renderPagination();
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
 
-.gallery-cover{
-    display:block !important;
-    width:100% !important;
-    max-width:1200px !important;
-    margin:35px auto 45px !important;
-    padding:0 20px !important;
-}
+  function renderPagination(){
+    pagination.innerHTML = '';
+    const pages = Math.ceil(TOTAL_DESIGNS / PER_PAGE);
 
-.gallery-cover-box{
-    display:block !important;
-    position:relative !important;
-    width:100% !important;
-    height:430px !important;
-    overflow:hidden !important;
-    border-radius:18px !important;
-    border:1px solid #1d3453 !important;
-    background:#020817 !important;
-}
+    const prev = document.createElement('button');
+    prev.textContent = '‹';
+    prev.disabled = currentPage === 1;
+    prev.onclick = () => { currentPage--; render(); };
+    pagination.appendChild(prev);
 
-.gallery-cover-box img{
-    display:block !important;
-    width:100% !important;
-    height:100% !important;
-    object-fit:cover !important;
-    object-position:center center !important;
-    margin:0 !important;
-}
-
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:767px){
-
-    .cover{
-        display:block !important;
-        width:100% !important;
-        padding:0 !important;
-        margin:0 !important;
+    for(let p = 1; p <= pages; p++){
+      const btn = document.createElement('button');
+      btn.textContent = p;
+      btn.className = p === currentPage ? 'active' : '';
+      btn.onclick = () => { currentPage = p; render(); };
+      pagination.appendChild(btn);
     }
 
-    .gallery-cover{
-        width:100% !important;
-        padding:0 10px !important;
-        margin:25px auto 30px !important;
-    }
+    const next = document.createElement('button');
+    next.textContent = '›';
+    next.disabled = currentPage === pages;
+    next.onclick = () => { currentPage++; render(); };
+    pagination.appendChild(next);
+  }
 
-    .gallery-cover-box{
-        width:100% !important;
-        height:260px !important;
-        border-radius:12px !important;
-    }
-
-    .gallery-cover-box img{
-        object-position:center center !important;
-    }
-}
+  render();
+</script>
+</body>
+</html>

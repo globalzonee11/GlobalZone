@@ -41,19 +41,27 @@
     </style>
 
 <style>
-/* GLOBAL ZONE - GALERI DESAIN RESPONSIVE
-   PC = 3 kolom
-   HP = 2 kolom
-*/
+/* GLOBAL ZONE - GALERI: paksa kartu tampil berjajar */
 #design-grid.gallery-design-grid {
     display: grid !important;
     grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
     gap: 24px !important;
+    width: 100% !important;
+    align-items: start !important;
 }
 
-#design-grid.gallery-design-grid > * {
+#design-grid.gallery-design-grid > div {
+    display: block !important;
     width: 100% !important;
     min-width: 0 !important;
+    max-width: none !important;
+    grid-column: auto !important;
+    grid-row: auto !important;
+}
+
+#design-grid.gallery-design-grid img {
+    display: block;
+    width: 100% !important;
 }
 
 @media (max-width: 767px) {
@@ -62,8 +70,8 @@
         gap: 10px !important;
     }
 
-    #design-grid.gallery-design-grid > * {
-        min-width: 0 !important;
+    #design-grid.gallery-design-grid > div {
+        width: 100% !important;
     }
 
     #design-grid.gallery-design-grid .relative.h-72 {
@@ -76,6 +84,18 @@
 
     #design-grid.gallery-design-grid h3 {
         font-size: 14px !important;
+        line-height: 1.25 !important;
+    }
+}
+
+@media (max-width: 400px) {
+    #design-grid.gallery-design-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 7px !important;
+    }
+
+    #design-grid.gallery-design-grid .relative.h-72 {
+        height: 150px !important;
     }
 }
 </style>
@@ -189,8 +209,7 @@
 
 
             <!-- GRID -->
-            <div id="design-grid"
-                class="gallery-design-grid">
+            <div id="design-grid" class="gallery-design-grid">
             </div>
 
 

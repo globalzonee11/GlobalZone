@@ -415,7 +415,7 @@
           </button>
         </div>
         <div class="p-5 sm:p-6">
-          <div class="relative h-64 sm:h-80 overflow-hidden rounded-2xl bg-slate-950 border border-slate-800">
+          <div class="relative h-72 overflow-hidden bg-slate-950">
             <img id="detail-main-image" src="" alt="Rincian produk" class="w-full h-full object-cover">
             <span class="absolute top-4 right-4 bg-slate-950/80 backdrop-blur-md border border-neon-cyan/30 text-neon-cyan text-xs font-black px-3 py-1.5 rounded-full">MIN. 12 PCS</span>
           </div>
@@ -681,7 +681,7 @@
                             alt="${item.name}"
                             loading="lazy"
                             decoding="async"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                         >
 																	</div>
 																	<div class="p-6">
@@ -713,7 +713,7 @@
             
 															<div onclick="openProductDetail(${item.id})" class="bg-slate-900/60 border border-slate-800 rounded-3xl overflow-hidden group hover:border-neon-cyan/50 transition-all flex flex-col justify-between backdrop-blur-md cursor-pointer">
 																<div>
-																	<div class="relative h-64 overflow-hidden bg-slate-950">
+																	<div class="relative h-72 overflow-hidden bg-slate-950">
 																		<img 
                             src="${item.image}" 
                             alt="${item.name}" 

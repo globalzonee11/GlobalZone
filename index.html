@@ -673,25 +673,24 @@
         designsToShow.forEach(item => {
           refGrid.innerHTML += `
             
-														<div class="bg-slate-900/60 border border-slate-800 rounded-3xl overflow-hidden group hover:border-neon-cyan/50 transition-all flex flex-col justify-between backdrop-blur-md">
-															<div>
-																<div class="relative h-64 overflow-hidden bg-slate-950">
-																	<img 
-                            src="${item.image}" 
-                            alt="${item.name}"
-                            loading="lazy"
-                            decoding="async"
-                            class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
-                        >
-																	</div>
-																	<div class="p-6">
-																		<h3 class="font-extrabold text-lg text-white group-hover:text-neon-cyan transition-colors">
-                            ${item.name}
-                        </h3>
-																	</div>
-																</div>
+		<div class="bg-slate-900/60 border border-slate-800 rounded-3xl overflow-hidden group hover:border-neon-cyan/50 transition-all flex flex-col justify-between backdrop-blur-md">
+		<div>
+		<div class="relative h-64 overflow-hidden bg-slate-950">
+		<img 
+            src="${item.image}" 
+            alt="${item.name}"
+            loading="lazy"
+            decoding="async"
+            class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+        	>
+		</div>
+		<div class="info">
+		  <div class="name">${item.name}</div>
+		  <div class="desc">Desain jersey custom Global Zone</div>
+		</div>
+		</div>
 																
-															</div>
+		</div>
         `;
         });
         const button = document.getElementById('show-all-designs');

@@ -7,74 +7,47 @@
    SAMPUL GALERI
 ========================= */
 
-.cover{
+/* =========================================
+   GLOBAL ZONE - GALLERY COVER
+========================================= */
+
+.gallery-cover{
+    width:100%;
     max-width:1200px;
     margin:0 auto 45px;
     padding:0 20px;
 }
 
-.cover-box{
+.gallery-cover-box{
     position:relative;
+    width:100%;
     overflow:hidden;
-    border-radius:20px;
+    border-radius:18px;
     border:1px solid #1d3453;
     background:#07111f;
     box-shadow:0 15px 45px rgba(0,0,0,.35);
 }
 
-.cover-box img{
+.gallery-cover-box img{
+    display:block;
     width:100%;
     height:auto;
-    display:block;
+    max-width:100%;
     object-fit:cover;
 }
 
-.cover-overlay{
-    position:absolute;
-    inset:0;
-    display:flex;
-    align-items:center;
-    padding:40px 55px;
-    background:linear-gradient(
-        90deg,
-        rgba(2,8,23,.85),
-        rgba(2,8,23,.35),
-        transparent
-    );
-}
-
-.cover-content{
-    max-width:600px;
-}
-
-.cover-label{
-    color:#19def5;
-    font-size:11px;
-    font-weight:900;
-    letter-spacing:2px;
-    text-transform:uppercase;
-}
-
-.cover-title{
-    margin:8px 0 0;
-    font-size:clamp(28px,4vw,52px);
-    line-height:1.05;
-    font-weight:900;
-}
-
-.cover-title span{
-    color:#18dcf5;
-}
-
-.cover-text{
-    margin:14px 0 0;
-    color:#c0ccdc;
-    font-size:13px;
-    line-height:1.7;
-    max-width:550px;
-}
-
 @media(max-width:767px){
+
+    .gallery-cover{
+        padding:0 10px;
+        margin-bottom:30px;
+    }
+
+    .gallery-cover-box{
+        border-radius:12px;
+    }
+
+}
 
     .cover{
         padding:0 10px;

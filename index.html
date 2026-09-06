@@ -757,43 +757,43 @@
                             decoding="async"
                             class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                         >
-																			<span class="absolute top-4 right-4 bg-slate-950/80 backdrop-blur-md border border-slate-800 text-neon-cyan text-xs font-black px-3 py-1 rounded-full uppercase tracking-wider">
-                            Min. 12 Pcs
-                        </span>
-																		</div>
-																		<div class="p-6">
-																			<h3 class="font-extrabold text-lg text-white group-hover:text-neon-cyan transition-colors">
+							<span class="absolute top-2 right-2 sm:top-3 sm:right-3 bg-slate-950/90 backdrop-blur-md border border-neon-cyan/30 text-neon-cyan text-[8px] sm:text-[10px] font-black px-2 py-1 sm:px-2.5 sm:py-1 rounded-full uppercase tracking-wide">
+							    MIN. 12 PCS
+							</span>
+							</div>
+							<div class="p-6">
+								<h3 class="font-extrabold text-lg text-white group-hover:text-neon-cyan transition-colors">
                             ${item.name}
-                        </h3>
-																			<p class="text-slate-400 text-xs mt-2 leading-relaxed">
+                       			 </h3>
+								<p class="text-slate-400 text-xs mt-2 leading-relaxed">
                             ${item.desc}
-                        </p>
-																			<div class="mt-4 inline-flex items-center gap-2 text-neon-cyan text-xs font-bold">
-																				<i class="fa-solid fa-eye"></i> Lihat Rincian Produk
+                        		</p>
+								<div class="mt-4 inline-flex items-center gap-2 text-neon-cyan text-xs font-bold">
+								<i class="fa-solid fa-eye"></i> Lihat Rincian Produk
                         
-																			</div>
-																		</div>
-																	</div>
-																	<div class="p-6 pt-0 flex items-center justify-between border-t border-slate-800/60 mt-4">
-																		<div>
-																			<span class="text-xs text-slate-500 block">
-                            Harga / Pcs (Min 12)
+								</div>
+								</div>
+								</div>
+								<div class="p-6 pt-0 flex items-center justify-between border-t border-slate-800/60 mt-4">
+								<div>
+								<span class="text-xs text-slate-500 block">
+                        Harga / Pcs (Min 12)
                         </span>
-																			<span class="text-lg font-black text-neon-cyan">
+						<span class="text-lg font-black text-neon-cyan">
                             Rp ${item.pricePerPcs.toLocaleString('id-ID')}
                         </span>
-																		</div>
-																		<button 
-                        type="button"
-                        onclick="event.stopPropagation(); addCatalogToCart(${item.id})"
-                        class="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-neon-cyan text-white hover:text-slate-950 font-extrabold text-xs transition-all flex items-center gap-2"
-                    >
-																			<i class="fa-solid fa-cart-plus"></i>
+								</div>
+								<button 
+	                        type="button"
+	                        onclick="event.stopPropagation(); addCatalogToCart(${item.id})"
+	                        class="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-neon-cyan text-white hover:text-slate-950 font-extrabold text-xs transition-all flex items-center gap-2"
+	                    >			
+						<i class="fa-solid fa-cart-plus"></i>
                         Pesan
                     
-																		</button>
-																	</div>
-																</div>
+				</button>
+			</div>
+		</div>
         `;
         });
       }

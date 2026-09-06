@@ -1,5 +1,36 @@
 <!DOCTYPE html>
 <html lang="id" class="scroll-smooth">
+	<style>
+/* ================================
+   GLOBAL ZONE - GRID RESPONSIVE
+   PC 3 KOLOM
+   HP 2 KOLOM
+================================ */
+
+#product-grid,
+#design-grid,
+#fabric-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 20px !important;
+}
+
+#product-grid > *,
+#design-grid > *,
+#fabric-grid > * {
+    width: 100% !important;
+    min-width: 0 !important;
+}
+
+@media (max-width: 767px) {
+    #product-grid,
+    #design-grid,
+    #fabric-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 8px !important;
+    }
+}
+</style>
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">

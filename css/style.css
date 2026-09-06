@@ -68,7 +68,17 @@ footer strong{color:#fff;letter-spacing:1px}
 
 @media(max-width:900px){.menu{gap:15px}.menu a:nth-child(4),.menu a:nth-child(5){display:none}}
 @media(max-width:767px){
-.nav{height:56px;padding:7px 11px}.logo{width:160px;height:45px}.menu{display:none}.actions{margin-left:auto}.cart{width:34px;height:34px}.order{padding:10px 13px;font-size:11px}
+.nav{
+    height:56px;
+    padding:7px 11px;
+    justify-content:flex-start;
+}..logo{
+    width:160px;
+    height:45px;
+    object-fit:contain;
+    display:block;
+    margin-left:-8px;
+}.menu{display:none}.actions{margin-left:auto}.cart{width:34px;height:34px}.order{padding:10px 13px;font-size:11px}
 .hero{padding:55px 13px 0}.hero h1{font-size:39px;letter-spacing:-1.7px}.hero p{font-size:11px}
 .stats{grid-template-columns:repeat(2,1fr);gap:17px;margin:28px auto 35px;padding:17px 0}.stat strong{font-size:22px}.stat small{font-size:8px}
 .wrap{padding:0 10px 50px}.heading h2{font-size:20px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}

@@ -1,8 +1,4 @@
-/* ========================================
-   GLOBAL GRID
-   PC  = 3 KOLOM
-   HP  = 2 KOLOM
-   ======================================== */
+/* ===== FIX GRID MOBILE ===== */
 
 #product-grid,
 #design-grid,
@@ -10,38 +6,14 @@
     display: grid !important;
     grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
     gap: 20px !important;
-    width: 100% !important;
 }
 
 #product-grid > *,
 #design-grid > *,
 #fabric-grid > * {
-    grid-column: auto !important;
-    grid-row: auto !important;
     width: 100% !important;
     min-width: 0 !important;
 }
-
-
-/* ========================================
-   TABLET & HP
-   2 KOLOM
-   ======================================== */
-
-@media screen and (max-width: 1024px) {
-    #product-grid,
-    #design-grid,
-    #fabric-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-        gap: 12px !important;
-    }
-}
-
-
-/* ========================================
-   HP
-   2 KOLOM
-   ======================================== */
 
 @media screen and (max-width: 767px) {
     #product-grid,
@@ -51,12 +23,6 @@
         gap: 8px !important;
     }
 }
-
-
-/* ========================================
-   HP SANGAT KECIL
-   TETAP 2 KOLOM
-   ======================================== */
 
 @media screen and (max-width: 400px) {
     #product-grid,

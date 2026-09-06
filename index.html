@@ -70,12 +70,41 @@
       <i class="fa-solid fa-bolt text-neon-cyan text-lg"></i>
       <span id="toast-message" class="font-semibold text-sm">Berhasil memperbarui sistem!</span>
     </div>
-    <div class="fixed bottom-6 left-6 z-40 flex flex-col gap-2">
-      <a href="https://wa.me/6283817075604?text=Halo%20Admin%201%20Global%20Zone,%20saya%20ingin%20konsultasi%20pembuatan%20jersey%20tim." target="_blank" class="flex items-center gap-2 px-4 py-3 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-[0_0_20px_rgba(16,185,129,0.4)] transition-all">
-        <i class="fa-brands fa-whatsapp text-lg"></i>Chat Admin 1 </a>
-      <a href="https://wa.me/6283893868621?text=Halo%20Admin%202%20Global%20Zone,%20saya%20ingin%20bertanya%20mengenai%20katalog%20dan%20harga%20jersey." target="_blank" class="flex items-center gap-2 px-4 py-3 rounded-full bg-slate-900 border border-emerald-500/50 hover:bg-slate-800 text-emerald-400 font-bold text-xs shadow-lg transition-all">
-        <i class="fa-brands fa-whatsapp text-lg"></i>Chat Admin 2 </a>
-    </div>
+    <!-- HUBUNGI KAMI -->
+<div class="fixed bottom-6 left-6 z-40">
+
+  <button
+    onclick="document.getElementById('contactOptions').classList.toggle('hidden')"
+    class="flex items-center gap-2 px-5 py-3 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-[0_0_20px_rgba(16,185,129,0.4)] transition-all">
+
+    <i class="fa-brands fa-whatsapp text-lg"></i>
+    Hubungi Kami
+  </button>
+
+  <div
+    id="contactOptions"
+    class="hidden absolute bottom-14 left-0 mb-2 flex flex-col gap-2">
+
+    <a
+      href="https://wa.me/6283817075604?text=Halo%20Admin%201%20Global%20Zone,%20saya%20ingin%20konsultasi%20pembuatan%20jersey%20tim."
+      target="_blank"
+      class="flex items-center gap-2 px-5 py-3 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-lg whitespace-nowrap">
+
+      <i class="fa-brands fa-whatsapp text-lg"></i>
+      Admin 1
+    </a>
+
+    <a
+      href="https://wa.me/6283893868621?text=Halo%20Admin%202%20Global%20Zone,%20saya%20ingin%20bertanya%20mengenai%20katalog%20dan%20harga%20jersey."
+      target="_blank"
+      class="flex items-center gap-2 px-5 py-3 rounded-full bg-slate-900 border border-emerald-500/50 hover:bg-slate-800 text-emerald-400 font-bold text-xs shadow-lg whitespace-nowrap">
+
+      <i class="fa-brands fa-whatsapp text-lg"></i>
+      Admin 2
+    </a>
+
+  </div>
+</div>
     <header class="fixed top-0 left-0 right-0 z-40 bg-[#05050A]/80 backdrop-blur-xl border-b border-slate-900">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         <a href="index.html" class="flex items-center">

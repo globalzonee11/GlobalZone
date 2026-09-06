@@ -39,43 +39,6 @@
             font-family: 'Outfit', sans-serif;
         }
     </style>
-
-
-
-
-<style id="globalzone-gallery-final">
-/* GLOBAL ZONE - GALERI FINAL: 2 KOLOM */
-#design-grid {
-    display: grid !important;
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    gap: 18px !important;
-    width: 100% !important;
-}
-#design-grid > * {
-    display: block !important;
-    width: auto !important;
-    min-width: 0 !important;
-    max-width: none !important;
-    margin: 0 !important;
-}
-#design-grid img {
-    display: block !important;
-    width: 100% !important;
-}
-@media (max-width: 767px) {
-    #design-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-        gap: 8px !important;
-    }
-    #design-grid .relative.h-72 {
-        height: 165px !important;
-    }
-    #design-grid .p-5 {
-        padding: 9px !important;
-    }
-}
-</style>
-
 </head>
 
 <body class="bg-[#05050A] text-slate-100 antialiased">
@@ -185,7 +148,8 @@
 
 
             <!-- GRID -->
-            <div id="design-grid" class="gallery-design-grid">
+            <div id="design-grid"
+                class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             </div>
 
 

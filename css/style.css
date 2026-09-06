@@ -321,7 +321,7 @@ footer strong{color:#fff;letter-spacing:1px}
     align-items: center;
     justify-content: space-between;
 
-    gap: 5px;
+    gap: 4px;
 
     padding: 6px 8px 10px;
 
@@ -346,7 +346,7 @@ footer strong{color:#fff;letter-spacing:1px}
 .price-value {
     margin-top: 2px;
 
-    font-size: 15px !important;
+    font-size: 10px !important;
     line-height: 1.15;
 
     font-weight: 900;

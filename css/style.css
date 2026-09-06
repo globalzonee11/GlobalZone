@@ -69,3 +69,22 @@
         gap: 6px !important;
     }
 }
+/* FIX FINAL KATALOG */
+#product-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 20px !important;
+}
+
+/* HP: 2 KOLOM */
+@media screen and (max-width: 767px) {
+    #product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 8px !important;
+    }
+
+    #product-grid > div {
+        width: 100% !important;
+        min-width: 0 !important;
+    }
+}

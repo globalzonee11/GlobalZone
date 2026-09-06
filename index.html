@@ -71,6 +71,34 @@
 #product-grid > div > div:first-child > div:nth-child(2){padding:13px 15px 15px!important;}
 @media(max-width:767px){#product-grid > div > div:first-child > div:first-child{height:auto!important;aspect-ratio:1/1!important;}#product-grid > div > div:first-child > div:nth-child(2){padding:9px!important;}}
 </style>
+
+<style id="catalog-text-smaller-final">
+/* Perkecil judul Jersey Setelan, deskripsi, dan harga pada kartu katalog */
+#product-grid > div > div:first-child > div:nth-child(2) h3{
+  font-size:12px !important;
+  line-height:1.25 !important;
+  margin-bottom:3px !important;
+}
+#product-grid > div > div:first-child > div:nth-child(2) p{
+  font-size:9px !important;
+  line-height:1.35 !important;
+}
+#product-grid > div > div:last-child > div > span:first-child{
+  font-size:9px !important;
+  line-height:1.25 !important;
+}
+#product-grid > div > div:last-child > div > span:last-child{
+  font-size:14px !important;
+  line-height:1.2 !important;
+}
+@media(max-width:767px){
+  #product-grid > div > div:first-child > div:nth-child(2) h3{font-size:10px !important;}
+  #product-grid > div > div:first-child > div:nth-child(2) p{font-size:8px !important;}
+  #product-grid > div > div:last-child > div > span:first-child{font-size:7px !important;}
+  #product-grid > div > div:last-child > div > span:last-child{font-size:11px !important;}
+}
+</style>
+
 </head>
   <body class="bg-[#05050A] text-slate-100 antialiased selection:bg-neon-cyan selection:text-slate-950">
     <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 bg-slate-900 border border-neon-cyan/50 text-white px-5 py-3 rounded-xl shadow-[0_0_20px_rgba(0,240,255,0.2)] flex items-center gap-3">
@@ -911,3 +939,4 @@
     </script>
   </body>
 </html>
+

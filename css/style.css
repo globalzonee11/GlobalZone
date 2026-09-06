@@ -19,3 +19,29 @@
         gap: 10px;
     }
 }
+/* ================================
+   PRODUCT GRID RESPONSIVE
+   ================================ */
+
+.product-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 2rem !important;
+    width: 100% !important;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 1.5rem !important;
+    }
+}
+
+/* HP */
+@media (max-width: 767px) {
+    .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 10px !important;
+    }
+}

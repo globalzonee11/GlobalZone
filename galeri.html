@@ -39,6 +39,47 @@
             font-family: 'Outfit', sans-serif;
         }
     </style>
+
+<style>
+/* GLOBAL ZONE - GALERI DESAIN RESPONSIVE
+   PC = 3 kolom
+   HP = 2 kolom
+*/
+#design-grid.gallery-design-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 24px !important;
+}
+
+#design-grid.gallery-design-grid > * {
+    width: 100% !important;
+    min-width: 0 !important;
+}
+
+@media (max-width: 767px) {
+    #design-grid.gallery-design-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 10px !important;
+    }
+
+    #design-grid.gallery-design-grid > * {
+        min-width: 0 !important;
+    }
+
+    #design-grid.gallery-design-grid .relative.h-72 {
+        height: 180px !important;
+    }
+
+    #design-grid.gallery-design-grid .p-5 {
+        padding: 10px !important;
+    }
+
+    #design-grid.gallery-design-grid h3 {
+        font-size: 14px !important;
+    }
+}
+</style>
+
 </head>
 
 <body class="bg-[#05050A] text-slate-100 antialiased">
@@ -149,7 +190,7 @@
 
             <!-- GRID -->
             <div id="design-grid"
-                class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                class="gallery-design-grid">
             </div>
 
 

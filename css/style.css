@@ -55,15 +55,15 @@
 
 /* ========================================
    HP
-   3 KOLOM
+   2 KOLOM
    ======================================== */
 
 @media (max-width: 767px) {
     #product-grid,
     #design-grid,
     #fabric-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-        gap: 8px !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 10px !important;
     }
 
     #product-grid > *,

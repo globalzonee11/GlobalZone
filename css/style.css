@@ -18,8 +18,8 @@ radial-gradient(circle at 80% 25%,rgba(112,40,255,.16),transparent 32%);z-index:
 .header{position:sticky;top:0;z-index:50;background:rgba(2,7,18,.95);border-bottom:1px solid #18243a;backdrop-filter:blur(14px)}
 .nav{height:58px;max-width:1320px;margin:auto;padding:7px 22px;display:flex;align-items:center;gap:25px}
 .logo{
-    width:200px;
-    height:58px;
+    width:220px;
+    height:55px;
     object-fit:contain;
     display:block;
 }
@@ -68,7 +68,7 @@ footer strong{color:#fff;letter-spacing:1px}
 
 @media(max-width:900px){.menu{gap:15px}.menu a:nth-child(4),.menu a:nth-child(5){display:none}}
 @media(max-width:767px){
-.nav{height:56px;padding:7px 11px}.logo{width:145px;height:45px}.menu{display:none}.actions{margin-left:auto}.cart{width:34px;height:34px}.order{padding:10px 13px;font-size:11px}
+.nav{height:56px;padding:7px 11px}.logo{width:160px;height:45px}.menu{display:none}.actions{margin-left:auto}.cart{width:34px;height:34px}.order{padding:10px 13px;font-size:11px}
 .hero{padding:55px 13px 0}.hero h1{font-size:39px;letter-spacing:-1.7px}.hero p{font-size:11px}
 .stats{grid-template-columns:repeat(2,1fr);gap:17px;margin:28px auto 35px;padding:17px 0}.stat strong{font-size:22px}.stat small{font-size:8px}
 .wrap{padding:0 10px 50px}.heading h2{font-size:20px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}

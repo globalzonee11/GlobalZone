@@ -747,7 +747,8 @@
         catalogProducts.forEach(item => {
           prodGrid.innerHTML += `
             
-															<div onclick="openProductDetail(${item.id})" class="bg-slate-900/60 border border-slate-800 rounded-3xl overflow-hidden group hover:border-neon-cyan/50 transition-all flex flex-col justify-between backdrop-blur-md cursor-pointer">
+															<div onclick="openProductDetail(${item.id})"
+     															 class="product-card bg-slate-900/60 border border-slate-800 rounded-3xl overflow-hidden group hover:border-neon-cyan/50 transition-all backdrop-blur-md cursor-pointer">
 																<div>
 																	<div class="relative aspect-square overflow-hidden bg-slate-950">
 																		<img 
@@ -757,24 +758,26 @@
                             decoding="async"
                             class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                         >
-							<span class="absolute top-2 right-2 sm:top-3 sm:right-3 bg-slate-950/90 backdrop-blur-md border border-neon-cyan/30 text-neon-cyan text-[8px] sm:text-[10px] font-black px-2 py-1 sm:px-2.5 sm:py-1 rounded-full uppercase tracking-wide">
+							<span class="absolute top-2 right-2 sm:top-3 sm:right-3 bg-slate-950/90 backdrop-blur-md border border-neon-cyan/30 text-neon-cyan text-[7px] sm:text-[8px] font-black px-1.5 py-0.5 sm:px-2 sm:py-1 rounded-full uppercase tracking-wide">
 							    MIN. 12 PCS
 							</span>
 							</div>
-							<div class="p-6">
-								<h3 class="font-extrabold text-lg text-white group-hover:text-neon-cyan transition-colors">
-                            ${item.name}
-                       			 </h3>
-								<p class="text-slate-400 text-xs mt-2 leading-relaxed">
-                            ${item.desc}
-                        		</p>
-								<div class="mt-4 inline-flex items-center gap-2 text-neon-cyan text-xs font-bold">
-								<i class="fa-solid fa-eye"></i> Lihat Rincian Produk
-                        
+							<div class="product-info">
+								    <h3 class="product-title font-extrabold text-white group-hover:text-neon-cyan transition-colors">
+								        ${item.name}
+								    </h3>
+								
+								    <p class="product-description text-slate-400">
+								        ${item.desc}
+								    </p>
+								
+								    <div class="product-detail-link">
+								        <i class="fa-solid fa-eye"></i>
+								        Lihat Rincian Produk
+								    </div>
 								</div>
-								</div>
-								</div>
-								<div class="p-6 pt-0 flex items-center justify-between border-t border-slate-800/60 mt-4">
+								
+								<div class="product-footer">
 								<div>
 								<span class="text-xs text-slate-500 block">
                         Harga / Pcs (Min 12)

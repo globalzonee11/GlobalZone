@@ -1,7 +1,9 @@
 /* ========================================
-   KATALOG & RINCIAN HARGA
+   GLOBAL GRID - PC 3 KOLOM
+   HP 2 KOLOM
    ======================================== */
 
+/* KATALOG PRODUK */
 #product-grid {
     display: grid !important;
     grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
@@ -9,32 +11,78 @@
     width: 100% !important;
 }
 
-/* Pastikan setiap card hanya mengambil 1 kolom */
-#product-grid > * {
+/* GALERI DESAIN */
+#design-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 20px !important;
+    width: 100% !important;
+}
+
+/* BAHAN / TEKNOLOGI KAIN */
+#fabric-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 20px !important;
+    width: 100% !important;
+}
+
+/* Semua card tidak boleh melebar ke kolom lain */
+#product-grid > *,
+#design-grid > *,
+#fabric-grid > * {
     grid-column: auto !important;
     grid-row: auto !important;
     width: auto !important;
     min-width: 0 !important;
 }
 
+
 /* ========================================
    TABLET
+   2 KOLOM
    ======================================== */
 
 @media (max-width: 1024px) {
-    #product-grid {
+    #product-grid,
+    #design-grid,
+    #fabric-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
         gap: 16px !important;
     }
 }
 
+
 /* ========================================
    HP
+   3 KOLOM
    ======================================== */
 
 @media (max-width: 767px) {
-    #product-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-        gap: 10px !important;
+    #product-grid,
+    #design-grid,
+    #fabric-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+        gap: 8px !important;
+    }
+
+    #product-grid > *,
+    #design-grid > *,
+    #fabric-grid > * {
+        width: 100% !important;
+    }
+}
+
+
+/* ========================================
+   HP SANGAT KECIL
+   Tetap 2 kolom tapi lebih rapat
+   ======================================== */
+
+@media (max-width: 400px) {
+    #product-grid,
+    #design-grid,
+    #fabric-grid {
+        gap: 8px !important;
     }
 }

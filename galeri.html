@@ -70,6 +70,84 @@ footer strong{color:#fff;letter-spacing:1px}
 .card{border-radius:11px}.info{padding:9px}.name{font-size:12px}.desc{font-size:9px}.badge{font-size:7px;top:7px;left:7px;padding:4px 6px}
 .pagination{gap:5px;margin-top:22px}.pagination button{min-width:35px;height:35px;padding:0 8px}
 }
+    /* ===== FIX GALERI AGAR TIDAK TERBELAH ===== */
+
+body{
+    display:block !important;
+    width:100% !important;
+    margin:0 !important;
+    padding:0 !important;
+}
+
+/* semua bagian galeri harus full lebar */
+body > .hero,
+body > .gallery-cover,
+body > .wrap,
+body > footer{
+    display:block !important;
+    width:100% !important;
+    float:none !important;
+    clear:both !important;
+}
+
+/* HERO */
+.hero{
+    max-width:1250px !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+    text-align:center !important;
+}
+
+/* SAMPUL */
+.gallery-cover{
+    width:100% !important;
+    max-width:1200px !important;
+    margin:35px auto 45px !important;
+    padding:0 20px !important;
+}
+
+.gallery-cover-box{
+    width:100% !important;
+    height:430px !important;
+    overflow:hidden !important;
+}
+
+.gallery-cover-box img{
+    width:100% !important;
+    height:100% !important;
+    display:block !important;
+    object-fit:cover !important;
+}
+
+/* KOLEKSI */
+.wrap{
+    width:100% !important;
+    max-width:1200px !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+}
+
+.grid{
+    display:grid !important;
+    grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+    width:100% !important;
+}
+
+/* HP */
+@media(max-width:767px){
+
+    .gallery-cover{
+        padding:0 10px !important;
+    }
+
+    .gallery-cover-box{
+        height:260px !important;
+    }
+
+    .grid{
+        grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    }
+}
 </style>
 </head>
 <body>

@@ -28,6 +28,41 @@
         font-family: Outfit, sans-serif
       }
     </style>
+	  <style>
+#product-grid, #design-grid, #fabric-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 20px !important;
+    width: 100% !important;
+}
+#product-grid > *, #design-grid > *, #fabric-grid > * {
+    position: relative !important;
+    overflow: hidden !important;
+    border-radius: 16px !important;
+    background: linear-gradient(145deg, #0d1a30, #050c1b) !important;
+    border: 1px solid #1d3453 !important;
+    box-shadow: 0 12px 35px rgba(0,0,0,.28) !important;
+    transition: transform .22s, border-color .22s, box-shadow .22s !important;
+}
+#product-grid > *:hover, #design-grid > *:hover, #fabric-grid > *:hover {
+    transform: translateY(-5px) !important;
+    border-color: #16d8f3 !important;
+    box-shadow: 0 15px 40px rgba(0,185,255,.12) !important;
+}
+#product-grid img, #design-grid img, #fabric-grid img {
+    aspect-ratio: 1 / 1 !important;
+    width: 100% !important;
+    height: 100% !important;
+    display: block !important;
+    object-fit: cover !important;
+}
+@media (max-width: 767px) {
+    #product-grid, #design-grid, #fabric-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 9px !important;
+    }
+}
+</style>
     <style>
       .footer-grid {
         display: grid !important;

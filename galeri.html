@@ -40,62 +40,38 @@
         }
     </style>
 
-<style>
-/* GLOBAL ZONE - GALERI: paksa kartu tampil berjajar */
-#design-grid.gallery-design-grid {
-    display: grid !important;
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-    gap: 24px !important;
-    width: 100% !important;
-    align-items: start !important;
-}
 
-#design-grid.gallery-design-grid > div {
-    display: block !important;
+
+
+<style id="globalzone-gallery-final">
+/* GLOBAL ZONE - GALERI FINAL: 2 KOLOM */
+#design-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 18px !important;
     width: 100% !important;
+}
+#design-grid > * {
+    display: block !important;
+    width: auto !important;
     min-width: 0 !important;
     max-width: none !important;
-    grid-column: auto !important;
-    grid-row: auto !important;
+    margin: 0 !important;
 }
-
-#design-grid.gallery-design-grid img {
-    display: block;
+#design-grid img {
+    display: block !important;
     width: 100% !important;
 }
-
 @media (max-width: 767px) {
-    #design-grid.gallery-design-grid {
+    #design-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-        gap: 10px !important;
+        gap: 8px !important;
     }
-
-    #design-grid.gallery-design-grid > div {
-        width: 100% !important;
+    #design-grid .relative.h-72 {
+        height: 165px !important;
     }
-
-    #design-grid.gallery-design-grid .relative.h-72 {
-        height: 180px !important;
-    }
-
-    #design-grid.gallery-design-grid .p-5 {
-        padding: 10px !important;
-    }
-
-    #design-grid.gallery-design-grid h3 {
-        font-size: 14px !important;
-        line-height: 1.25 !important;
-    }
-}
-
-@media (max-width: 400px) {
-    #design-grid.gallery-design-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-        gap: 7px !important;
-    }
-
-    #design-grid.gallery-design-grid .relative.h-72 {
-        height: 150px !important;
+    #design-grid .p-5 {
+        padding: 9px !important;
     }
 }
 </style>

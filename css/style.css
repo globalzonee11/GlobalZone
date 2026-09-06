@@ -72,13 +72,17 @@ footer strong{color:#fff;letter-spacing:1px}
     height:56px;
     padding:7px 11px;
     justify-content:flex-start;
-}..logo{
+}
+
+.logo{
     width:160px;
     height:45px;
     object-fit:contain;
     display:block;
     margin-left:-8px;
-}.menu{display:none}.actions{margin-left:auto}.cart{width:34px;height:34px}.order{padding:10px 13px;font-size:11px}
+}
+
+.menu{display:none}.actions{margin-left:auto}.cart{width:34px;height:34px}.order{padding:10px 13px;font-size:11px}
 .hero{padding:55px 13px 0}.hero h1{font-size:39px;letter-spacing:-1.7px}.hero p{font-size:11px}
 .stats{grid-template-columns:repeat(2,1fr);gap:17px;margin:28px auto 35px;padding:17px 0}.stat strong{font-size:22px}.stat small{font-size:8px}
 .wrap{padding:0 10px 50px}.heading h2{font-size:20px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
@@ -148,7 +152,7 @@ footer strong{color:#fff;letter-spacing:1px}
 <body>
 <header class="header">
 <nav class="nav">
-<a href="index.html"><img class="logo" src="LOGO2.webp" alt="Global Cloth Zone"></a>
+<a href="index.html"><img class="logo" src="images/LOGO2.webp" alt="Logo"></a>
 <div class="menu">
 <a href="galeri.html">Galeri Referensi</a>
 <a href="index.html#katalog">Katalog & Harga</a>

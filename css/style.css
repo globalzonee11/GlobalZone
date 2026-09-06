@@ -1,46 +1,39 @@
-.product-grid {
+/* ========================================
+   KATALOG & RINCIAN HARGA
+   ======================================== */
+
+#product-grid {
     display: grid !important;
     grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-    gap: 2rem;
-}
-
-/* Tablet */
-@media (max-width: 1024px) {
-    .product-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-        gap: 1.5rem;
-    }
-}
-
-/* HP */
-@media (max-width: 767px) {
-    .product-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-        gap: 10px;
-    }
-}
-/* ================================
-   PRODUCT GRID RESPONSIVE
-   ================================ */
-
-.product-grid {
-    display: grid !important;
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-    gap: 2rem !important;
+    gap: 20px !important;
     width: 100% !important;
 }
 
-/* Tablet */
+/* Pastikan setiap card hanya mengambil 1 kolom */
+#product-grid > * {
+    grid-column: auto !important;
+    grid-row: auto !important;
+    width: auto !important;
+    min-width: 0 !important;
+}
+
+/* ========================================
+   TABLET
+   ======================================== */
+
 @media (max-width: 1024px) {
-    .product-grid {
+    #product-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-        gap: 1.5rem !important;
+        gap: 16px !important;
     }
 }
 
-/* HP */
+/* ========================================
+   HP
+   ======================================== */
+
 @media (max-width: 767px) {
-    .product-grid {
+    #product-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
         gap: 10px !important;
     }

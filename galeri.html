@@ -6,9 +6,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Galeri Referensi | Global Cloth Zone</title>
 <meta name="description" content="Galeri referensi jersey custom Global Cloth Zone.">
-
-<link rel="icon" type="image/webp" href="images/LOGO.png">
-    
 <style>
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -186,6 +183,79 @@ body > footer{
         aspect-ratio:1/1;
     }
 }
+
+/* ==============================
+   NOMOR REFERENSI & PREVIEW
+============================== */
+.photo {
+    position: relative;
+    cursor: zoom-in;
+}
+
+.reference-number {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 5;
+    padding: 6px 10px;
+    border-radius: 8px;
+    background: rgba(2, 8, 23, .88);
+    border: 1px solid #16d8f3;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: .5px;
+    backdrop-filter: blur(6px);
+    pointer-events: none;
+}
+
+.image-viewer {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    background: rgba(0, 0, 0, .90);
+    backdrop-filter: blur(8px);
+}
+
+.image-viewer.show {
+    display: flex;
+}
+
+.image-viewer img {
+    max-width: 92vw;
+    max-height: 90vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 14px;
+    box-shadow: 0 20px 70px rgba(0,0,0,.75);
+}
+
+.viewer-close {
+    position: fixed;
+    top: 20px;
+    right: 25px;
+    z-index: 10000;
+    width: 45px;
+    height: 45px;
+    border: 1px solid #33445f;
+    border-radius: 50%;
+    background: rgba(5,15,30,.95);
+    color: #fff;
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.viewer-close:hover {
+    border-color: #16d8f3;
+    background: #10233b;
+}
+
 </style>
 </head>
 <body>
@@ -266,6 +336,15 @@ body > footer{
 
 </main>
 <footer><strong>GLOBAL CLOTH ZONE</strong><br>Jersey Custom Berkualitas • Desain Sesuai Keinginan Anda<br>TikTok: @globalzonee • Instagram: @globalzonee • Facebook: Global Zone<br>WhatsApp: 083817075604 • 083893868621</footer>
+
+<!-- ==============================
+     IMAGE VIEWER
+================================ -->
+<div id="imageViewer" class="image-viewer">
+    <button type="button" class="viewer-close" id="viewerClose" aria-label="Tutup">×</button>
+    <img id="viewerImage" src="" alt="Preview desain jersey">
+</div>
+
 <script>
   const TOTAL_DESIGNS = 150;
   const PER_PAGE = 12;
@@ -276,16 +355,31 @@ body > footer{
   const count = document.getElementById('count');
 
   function makeCard(number){
+
     const card = document.createElement('article');
     card.className = 'card';
 
     const photo = document.createElement('div');
     photo.className = 'photo';
 
+    const reference = document.createElement('div');
+    reference.className = 'reference-number';
+    reference.textContent = `#${String(number).padStart(2,'0')}`;
+
     const img = document.createElement('img');
     img.src = `images/${number}.webp`;
     img.alt = `Jersey Custom ${String(number).padStart(2,'0')}`;
     img.loading = 'lazy';
+
+    img.addEventListener('click', function(){
+      const viewer = document.getElementById('imageViewer');
+      const viewerImage = document.getElementById('viewerImage');
+      viewerImage.src = img.src;
+      viewerImage.alt = img.alt;
+      viewer.classList.add('show');
+      document.body.style.overflow = 'hidden';
+    });
+
     img.onerror = () => {
       card.remove();
     };
@@ -302,6 +396,7 @@ body > footer{
     desc.textContent = 'Desain jersey custom Global Zone';
 
     photo.appendChild(img);
+    photo.appendChild(reference);
     info.appendChild(name);
     info.appendChild(desc);
     card.appendChild(photo);
@@ -349,6 +444,33 @@ body > footer{
     next.onclick = () => { currentPage++; render(); };
     pagination.appendChild(next);
   }
+
+
+  /* ==============================
+     IMAGE VIEWER CONTROL
+  ============================== */
+  const imageViewer = document.getElementById('imageViewer');
+  const viewerClose = document.getElementById('viewerClose');
+
+  function closeViewer(){
+    imageViewer.classList.remove('show');
+    document.getElementById('viewerImage').src = '';
+    document.body.style.overflow = '';
+  }
+
+  viewerClose.addEventListener('click', closeViewer);
+
+  imageViewer.addEventListener('click', function(e){
+    if(e.target === imageViewer){
+      closeViewer();
+    }
+  });
+
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){
+      closeViewer();
+    }
+  });
 
   render();
 </script>

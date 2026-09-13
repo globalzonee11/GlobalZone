@@ -210,7 +210,7 @@
         </div>
         <div class="mt-10 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto border-t border-slate-800 pt-8">
           <div class="text-center">
-            <div class="text-2xl sm:text-3xl font-black text-neon-cyan">12 Pcs</div>
+            <div class="text-2xl sm:text-3xl font-black text-neon-cyan">6 Pcs</div>
             <div class="text-[10px] sm:text-xs text-slate-500 mt-1 uppercase tracking-wider">Minimum Pemesanan Tim</div>
           </div>
           <div class="text-center">
@@ -245,7 +245,7 @@
         <div class="text-center max-w-2xl mx-auto mb-16">
           <span class="text-neon-cyan text-xs font-black uppercase tracking-widest">Pemesanan Tim Profesional</span>
           <h2 class="text-3xl sm:text-4xl font-black tracking-tight mt-2">Katalog & Rincian Harga Pesanan</h2>
-          <p class="text-slate-400 text-sm mt-3">Pesan batch tim Anda dengan harga transparan per pcs (Minimum order 12 pcs).</p>
+          <p class="text-slate-400 text-sm mt-3">Pesan batch tim Anda dengan harga transparan per pcs (Minimum order 6 pcs).</p>
         </div>
         <div id="product-grid" class="product-grid"></div>
       </div>
@@ -466,7 +466,7 @@
           <div class="relative h-72 overflow-hidden bg-slate-950">
             <img id="detail-main-image" src="" alt="Rincian produk" class="w-full h-full object-cover">
             <span class="absolute top-2 right-2 bg-slate-950/90 backdrop-blur-md border border-neon-cyan/30 text-neon-cyan text-[8px] font-black px-2 py-1 rounded-full uppercase tracking-wide whitespace-nowrap">
-			    Min. 12 PCS
+			    Min. 6 PCS
 			</span>
           </div>
           <div class="mt-6">
@@ -477,10 +477,10 @@
                 <span class="text-xs text-slate-500 block">Harga / Pcs</span>
                 <span id="detail-product-price" class="text-xl font-black text-neon-cyan"></span>
               </div>
-              <span class="text-xs font-bold text-slate-400">Minimum 12 Pcs</span>
+              <span class="text-xs font-bold text-slate-400">Minimum 6 Pcs</span>
             </div>
             <button type="button" onclick="orderSelectedProduct()" class="w-full mt-5 py-4 rounded-xl bg-gradient-to-r from-neon-cyan to-blue-600 text-slate-950 font-extrabold text-sm hover:opacity-90 transition-all flex items-center justify-center gap-2">
-              <i class="fa-solid fa-cart-plus"></i>Pesan 12 Pcs </button>
+              <i class="fa-solid fa-cart-plus"></i>Pesan 6 Pcs </button>
           </div>
         </div>
       </div>
@@ -797,7 +797,7 @@
                             class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                         >
 							<span class="absolute top-2 right-2 sm:top-3 sm:right-3 bg-slate-950/90 backdrop-blur-md border border-neon-cyan/30 text-neon-cyan text-[7px] sm:text-[8px] font-black px-1.5 py-0.5 sm:px-2 sm:py-1 rounded-full uppercase tracking-wide">
-							    MIN. 12 PCS
+							    MIN. 6 PCS
 							</span>
 							</div>
 							<div class="product-info">
@@ -818,7 +818,7 @@
 								<div class="product-footer">
 								<div>
 								<span class="text-xs text-slate-500 block">
-                        Harga / Pcs (Min 12)
+                        Harga / Pcs (Min 6)
                         </span>
 						<span class="text-lg font-black text-neon-cyan">
                             Rp ${item.pricePerPcs.toLocaleString('id-ID')}
@@ -875,15 +875,15 @@
 
       function addCatalogToCart(id) {
         const prod = catalogProducts.find(p => p.id === id);
-        const totalBatchPrice = prod.pricePerPcs * 12;
+        const totalBatchPrice = prod.pricePerPcs * 6;
         cartList.push({
           name: prod.name,
-          specs: `Paket Tim (12 Pcs) | Ukuran: Mix/Standar`,
+          specs: `Paket Tim (6 Pcs) | Ukuran: Mix/Standar`,
           price: totalBatchPrice,
-          qty: 12
+          qty: 6
         });
         updateCartBadge();
-        showToast('Paket 12 Pcs berhasil dimasukkan ke keranjang!');
+        showToast('Paket 6 Pcs berhasil dimasukkan ke keranjang!');
       }
 
       function updateCartBadge() {
